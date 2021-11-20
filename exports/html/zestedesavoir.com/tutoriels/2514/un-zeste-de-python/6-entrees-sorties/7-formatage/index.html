@@ -1,0 +1,3119 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="enable-mobile-menu" lang="fr" antidoteapi_jsconnect="true">
+<head>
+    <meta charset="utf-8">
+
+    
+
+    <title>
+        Formater les données - Un zeste de Python &bull; Tutoriels &bull; Zeste de Savoir
+    </title>
+
+    <meta name="language" content="fr">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
+
+    
+    <meta name="theme-color" content="#084561">
+    <meta name="msapplication-navbutton-color" content="#084561">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    
+    
+    <meta name="description" content="Débuter avec Python">
+
+
+    
+
+
+    
+    <meta property="og:site_name" content="Zeste de Savoir">
+    <meta property="og:title" content="Formater les données - Un zeste de Python &bull; Tutoriels &bull; Zeste de Savoir">
+    <meta property="og:url" content="https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/">
+    <meta property="og:language" content="fr_FR">
+    <meta property="og:image:url" content="http://zestedesavoir.com/media/galleries/5033/d1decad0-f454-471a-9cec-41b69a66cc9e.png.144x144_q95_crop.png">
+    <meta property="og:image:secure_url" content="https://zestedesavoir.com/media/galleries/5033/d1decad0-f454-471a-9cec-41b69a66cc9e.png.144x144_q95_crop.png">
+    
+    <meta property="og:type" content="article">
+
+
+
+
+<meta property="og:article:section" content="Tutoriels">
+
+    <meta property="og:article:tag" content="Programmation et algorithmique">
+
+
+
+
+    
+    <meta property="twitter:domain" content="https://zestedesavoir.com/">
+    
+        <meta property="twitter:card" content="summary">
+    
+    <meta property="twitter:url" content="https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/">
+    <meta property="twitter:title" content="Formater les données - Un zeste de Python &bull; Tutoriels &bull; Zeste de Savoir">
+    <meta property="twitter:description" content="Débuter avec Python">
+    <meta property="twitter:site" content="@ZesteDeSavoir">
+    <meta property="twitter:creator" content="@ZesteDeSavoir">
+    <meta property="twitter:image" content="http://zestedesavoir.com/media/galleries/5033/d1decad0-f454-471a-9cec-41b69a66cc9e.png.144x144_q95_crop.png">
+
+
+    
+    
+
+
+    
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../static/css/easymde.min.988f62e1a8b3.css">
+    <link rel="stylesheet" href="../../../../../static/css/katex.min.50a5301fd703.css">
+    <link rel="stylesheet" href="../../../../../static/css/main.b311e0e232bb.css">
+
+    
+    
+
+
+    
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Source+Code+Pro:400,700|Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+
+    
+    
+
+    
+    
+        
+    
+
+    
+        
+            <link rel="icon" sizes="16x16" type="image/png" href="../../../../../static/images/favicons/16.3cb06f49a319.png">
+        
+            <link rel="icon" sizes="32x32" type="image/png" href="../../../../../static/images/favicons/32.8864f5e754ff.png">
+        
+            <link rel="icon" sizes="64x64" type="image/png" href="../../../../../static/images/favicons/64.b399daf7e2f5.png">
+        
+            <link rel="icon" sizes="96x96" type="image/png" href="../../../../../static/images/favicons/96.9ed1415603d4.png">
+        
+            <link rel="icon" sizes="128x128" type="image/png" href="../../../../../static/images/favicons/128.07157f777049.png">
+        
+            <link rel="icon" sizes="256x256" type="image/png" href="../../../../../static/images/favicons/256.b4304d164aa4.png">
+        
+    
+
+    
+    
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/114.772f39c33b1a.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/120.8cf680a96e7d.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/144.a9e39f886050.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/152.a2003b17a9b2.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/167.540217e160af.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/180.e167ecab6abe.png">
+        
+    
+
+    
+    
+    <link rel="alternate" type="application/rss+xml" title="Forum" href="https://zestedesavoir.com/forums/flux/messages/rss/">
+    <link rel="alternate" type="application/rss+xml" title="Nouveaux tutoriels (RSS)" href="https://zestedesavoir.com/tutoriels/flux/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Nouveaux tutoriels (ATOM)" href="https://zestedesavoir.com/tutoriels/flux/atom/">
+    <link rel="alternate" type="application/rss+xml" title="Nouveaux articles (RSS)" href="https://zestedesavoir.com/articles/flux/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Nouveaux articles (ATOM)" href="https://zestedesavoir.com/articles/flux/atom/">
+    <link rel="alternate" type="application/rss+xml" title="Nouveaux billets (RSS)" href="https://zestedesavoir.com/billets/flux/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Nouveaux billets (ATOM)" href="https://zestedesavoir.com/billets/flux/atom/">
+    
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="Zeste de Savoir" href="https://zestedesavoir.com/rechercher/opensearch.xml">
+
+    
+    
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?locale=fr&config=TeX-AMS_HTML&delayStartupUntil=configured"
+        integrity="sha384-Ra6zh6uYMmH5ydwCqqMoykyf1T/+ZcnOQfFPhDrp2kI4OIxadnhsvvA2vv9A7xYv"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+</head>
+
+
+    
+
+
+<body class=""
+       
+    itemscope
+    itemtype="http://schema.org/WebPage"
+    
+        data-show-markdown-help="true"
+    
+>
+
+    
+<div id="old-browser-warning-container"></div>
+
+
+
+
+<script>
+
+(function () {
+    var container = document.getElementById("old-browser-warning-container");
+
+    if (window.ActiveXObject || 'ActiveXObject' in window) {
+        var more = document.createElement('A');
+        more.innerText = 'En savoir plus';
+        more.setAttribute('href', 'https://browsehappy.com/?locale=fr');
+
+        var div = document.createElement('DIV');
+        div.className = 'old-browser-warning';
+        div.innerText = 'Le bon fonctionnement du site avec Internet Explorer n’est pas garanti  •  ';
+        div.appendChild(more);
+        container.appendChild(div);
+
+        document.body.classList.add('old-browser-warning-shown');
+    }
+})();
+
+</script>
+
+
+    
+    
+
+
+    
+        <style>
+            :root {
+                --very-top-banner-background-color: #800;
+                --very-top-banner-color: white;
+                --very-top-banner-border-color: #450000;
+            }
+        </style>
+
+        <div id="very-top-banner" data-slug="version-beta">
+            <span>Version bêta</span>
+            <button aria-label="Fermer" title="Appuyer sur la touche majuscule ou la touche contrôle en cliquant pour que la fermeture persiste sur tout le navigateur.">×</button>
+        </div>
+    
+
+
+
+    <div class="mobile-menu" id="mobile-menu"></div>
+
+    <div class="page-container">
+
+        <ul id="accessibility">
+            <li>
+                <a href="index.html#menu">Aller au menu</a>
+            </li>
+            <li>
+                <a href="index.html#content" accesskey="s">Aller au contenu</a>
+            </li>
+            <li>
+                <a href="index.html#search-top" accesskey="4">Aller à la recherche</a>
+            </li>
+        </ul>
+
+        <div class="header-container">
+            
+
+
+
+
+
+
+
+
+
+<header>
+    <div class="mobile-menu-btn ico-after"></div>
+
+    
+    <div class="header-logo">
+        <a href="https://zestedesavoir.com/"
+           class="header-logo-link">
+            Zeste de Savoir
+        </a>
+    </div>
+
+    <div class="header-mobile-page-title">
+        
+            Zeste de Savoir
+        
+    </div>
+
+    
+    <nav
+        class="header-menu"
+        id="menu"
+        data-title="Menu"
+        
+    >
+
+        <ul class="header-menu-list">
+            <li>
+                <a href="https://zestedesavoir.com/bibliotheque/" class="mobile-menu-link has-dropdown ">
+                    Bibliothèque
+                    <span class="arrow"></span>
+                </a>
+
+                
+                    <div class="header-dropdown header-menu-dropdown">
+                        <a href="https://zestedesavoir.com/bibliotheque/" class="dropdown-link-all">
+                            Accéder à tous les contenus de la bibliothèque
+                        </a>
+
+                        <ul class="dropdown-list">
+                            
+                            
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/informatique/">
+                                                    Informatique
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/autres-informatique/">
+                                                        Autres (informatique)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/bureautique-et-redaction/">
+                                                        Bureautique et rédaction
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/site-web/">
+                                                        Développement Web
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/materiel-et-electronique/">
+                                                        Matériel et électronique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/programmation-et-algorithmique/">
+                                                        Programmation et algorithmique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/systemes-dexploitation/">
+                                                        Systèmes d&#39;exploitation
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/">
+                                                    Sciences de la nature
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/astronomie/">
+                                                        Astronomie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/autres-sciences-de-la-nature/">
+                                                        Autres (sciences de la nature)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/biologie/">
+                                                        Biologie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/chimie/">
+                                                        Chimie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/mathematiques/">
+                                                        Mathématiques
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/physique/">
+                                                        Physique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/geologie-et-geographie-physique/">
+                                                        Sciences de la terre
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/">
+                                                    Sciences humaines et sociales
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/autres-sciences-humaines-et-sociales/">
+                                                        Autres (sciences humaines et sociales)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/droit/">
+                                                        Droit
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/economie/">
+                                                        Économie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/histoire/">
+                                                        Histoire
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/langues/">
+                                                        Langues
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/psychologie/">
+                                                        Psychologie
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/autres/">
+                                                    Autres
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/arts-graphisme-et-multimedia/">
+                                                        Arts, graphisme et multimédia
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/autres/">
+                                                        Autres
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/communication-et-management/">
+                                                        Communication et management
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/zeste-de-savoir/">
+                                                        Zeste de Savoir
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Tags les plus utilisés
+                                            </li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=zds">zds</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=math%C3%A9matiques">mathématiques</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=algorithmique">algorithmique</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=python">python</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=physique">physique</a></li>
+                                            
+                                            <li><a href="https://zestedesavoir.com/contenus/tags/">Tous les tags</a></li>
+                                        </ul>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </li>
+            <li>
+                <a href="https://zestedesavoir.com/billets/" class="mobile-menu-link has-dropdown ">
+                    Tribune
+                    <span class="arrow"></span>
+                </a>
+                
+                    <div class="header-dropdown header-menu-dropdown">
+                        <a href="https://zestedesavoir.com/billets/" class="dropdown-link-all">
+                            Tous les billets
+                        </a>
+
+                        <ul class="dropdown-list">
+                            
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Informatique
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres-informatique">
+                                                        Autres (informatique)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=bureautique-et-redaction">
+                                                        Bureautique et rédaction
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=site-web">
+                                                        Développement Web
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=materiel-et-electronique">
+                                                        Matériel et électronique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=programmation-et-algorithmique">
+                                                        Programmation et algorithmique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=systemes-dexploitation">
+                                                        Systèmes d&#39;exploitation
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Sciences de la nature
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=astronomie">
+                                                        Astronomie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres-sciences-de-la-nature">
+                                                        Autres (sciences de la nature)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=biologie">
+                                                        Biologie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=chimie">
+                                                        Chimie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=mathematiques">
+                                                        Mathématiques
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=physique">
+                                                        Physique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=geologie-et-geographie-physique">
+                                                        Sciences de la terre
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Sciences humaines et sociales
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres-sciences-humaines-et-sociales">
+                                                        Autres (sciences humaines et sociales)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=droit">
+                                                        Droit
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=economie">
+                                                        Économie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=histoire">
+                                                        Histoire
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=langues">
+                                                        Langues
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=psychologie">
+                                                        Psychologie
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Autres
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=arts-graphisme-et-multimedia">
+                                                        Arts, graphisme et multimédia
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres">
+                                                        Autres
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=communication-et-management">
+                                                        Communication et management
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=zeste-de-savoir">
+                                                        Zeste de Savoir
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Tags les plus utilisés
+                                            </li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=python">python</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=zds">zds</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=c%2B%2B">c++</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=musique">musique</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=javascript">javascript</a></li>
+                                            
+                                            <li><a href="https://zestedesavoir.com/contenus/tags/?type=opinion">Tous les tags</a></li>
+                                        </ul>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </li>
+            <li>
+                <a href="https://zestedesavoir.com/forums/" class="mobile-menu-link has-dropdown ">
+                    Forum
+                    <span class="arrow"></span>
+                </a>
+                
+                    <div class="header-dropdown header-menu-dropdown">
+                        <a href="https://zestedesavoir.com/forums/" class="dropdown-link-all">
+                            Tous les forums
+                        </a>
+
+                        <ul class="dropdown-list">
+                            
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/forums/savoirs/">
+                                                    Savoirs
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/programmation/">Programmation</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/site-web/">Développement Web</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/multimedia-et-jeux-video/">Multimédia et Jeux vidéo</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/systemes-et-materiels/">Systèmes et Matériels</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/sciences/">Sciences</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/autres-savoirs/">Les autres savoirs</a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/forums/communaute/">
+                                                    Communauté
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/bar-smoothies/">Le bar à smoothies</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/bug-suggestions/">Bugs et Suggestions</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/dev-zone/">Dev Zone</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/beta-zone/">Contenus en cours de rédaction</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/projets/">Vos projets</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/association/">L&#39;association</a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Tags les plus utilisés
+                                            </li>
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/python/">python</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/c/">c++</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/php/">php</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/arduino/">arduino</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/java/">java</a>
+                                                    </li>
+                                                
+                                            
+                                        </ul>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </li>
+        </ul>
+    </nav>
+
+
+    
+    <div class="logbox header-right unlogged">
+         
+            <a href="https://zestedesavoir.com/membres/connexion/?next=/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/">Connexion</a>
+            <a href="https://zestedesavoir.com/membres/inscription/">Inscription</a>
+        
+    </div>
+</header>
+
+
+            <div class="clearfix sub-header">
+                <div class="breadcrumb" itemprop="breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="https://zestedesavoir.com/" rel="home" itemprop="url">
+                                <span itemprop="title">Accueil</span>
+                            </a>
+                        </li>
+                        
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a
+            
+                href="https://zestedesavoir.com/bibliotheque/?type=tutorial"
+            
+            itemprop="url">
+            <span itemprop="title">Tutoriels</span>
+        </a>
+    </li>
+
+                        
+    
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span itemprop="title"><a href="../../index.html">Un zeste de Python</a></span>
+        </li>
+    
+
+    
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span itemprop="title"><a href="../index.html">Entrées / sorties</a></span>
+        </li>
+    
+
+    <li>Formater les données</li>
+
+                    </ol>
+                </div>
+                <div class="search header-right" id="search">
+                    <form action="https://zestedesavoir.com/rechercher/">
+                        <input id="search-top" type="text" name="q" placeholder="Rechercher" title="Contenu de la recherche">
+                        <button type="submit" class="ico-after search-submit" title="Lancer la recherche">OK</button>
+                    </form>
+                    <a href="https://zestedesavoir.com/rechercher/" title="Recherche avancée" class="search-more"></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="main-container">
+            
+                <div class="main wrapper clearfix">
+                    <main class="content-container" role="main" id="content">
+                        
+                            
+
+
+
+                        
+
+                        
+    <article class="content-wrapper" 
+    itemscope itemtype="http://schema.org/Article"
+>
+        <header>
+            
+    
+        <p class="license">
+            Licence CC BY-SA
+        </p>
+    
+
+    <h1>
+        Formater les données
+    </h1>
+
+    
+
+
+
+
+
+
+
+<aside class="meta">
+    <div class="meta-column">
+        <div class="members">
+            <span class="authors-label">
+                Auteur :
+            </span>
+            <ul>
+                
+                    <li>
+                        
+
+
+
+
+    <a href="https://zestedesavoir.com/@entwanne"
+           class="member-item"
+           itemscope
+           itemtype="http://schema.org/Person"
+           ><img src="https://secure.gravatar.com/avatar/0dcfd806f48fe3492f81c0692572961d?d=identicon" alt="" class="avatar" itemprop="image" aria-hidden="true" /><span itemprop="name">entwanne</span></a>
+
+
+                    </li>
+                
+
+                
+            </ul>
+        </div>
+
+        
+            
+        
+
+        <p>
+            Catégorie :
+
+            
+                
+                
+                    <a href="https://zestedesavoir.com/bibliotheque/?subcategory=programmation-et-algorithmique">Programmation et algorithmique</a>
+                
+            
+        </p>
+
+        <p>
+            
+        </p>
+
+        
+            
+        
+
+        
+            <p class="pubdate">
+            
+                Publié
+                <time datetime="2021-11-20T09:30:09" pubdate="pubdate" itemprop="dateModified">
+                    il y a 14 minutes
+                </time>
+            
+            </p>
+        
+    </div>
+
+    <div class="meta-column">
+        
+
+        
+            <ul class="taglist" itemprop="keywords">
+                
+                    <li><a href="https://zestedesavoir.com/bibliotheque/?tag=python" rel="tag">python</a></li>
+                
+            </ul>
+        
+
+        
+<button class="btn btn-grey ico-after view open-zen-mode" data-content-on-click="Quitter la lecture zen">Lecture zen</button>
+    </div>
+</aside>
+
+
+    
+
+        </header>
+        
+            <section class="article-content" >
+                
+    
+        
+
+
+
+    <ul class="pagination pagination-top pagination-chapter">
+        
+            <li class="prev">
+                <a
+                    
+                        href="../6-exceptions/index.html"
+                    
+                    class="ico-after arrow-left"
+                    rel="prev"
+                >
+                    Gérer les exceptions (try/except)
+                </a>
+            </li>
+        
+        
+        
+            <li class="summary-button">
+                <a
+                    
+                        href="../../index.html"
+                    
+                >
+                    Sommaire
+                </a>
+            </li>        
+        
+        
+        
+            <li class="next">
+                <a
+                    
+                        href="../8-arguments-cmd/index.html"
+                    
+                    class="ico-after arrow-right"
+                    rel="next"
+                >
+                    Arguments de la ligne de commande
+                </a>
+            </li>
+        
+    </ul>
+
+
+
+    
+    
+        
+
+
+
+    <p>On a vu comment ouvrir des fichiers et y écrire du texte, mais toutes les données que nous manipulons ne sont pas du texte.
+Bien sûr il est possible de les convertir, c’est d’ailleurs ce que fait la fonction <code>print</code> sur ce qu’elle reçoit, mais comment conserver une structure des données ?</p>
+<p>Par exemple pour notre sauvegarde il va nous falloir enregistrer l’état du jeu, tout ce qui différencie la partie en cours d’une autre : les noms des monstres et leurs points de vie.
+Il s’agit donc de données de types différents (chaînes de caractères, nombres) qu’il va nous falloir représenter, en utilisant pour cela un format de données adéquat.
+Le format est une notion un peu abstraite qui explique de quelle manière les données doivent être traitées, comment elles peuvent être reconstruites à partir de leur représentation.</p>
+<p>Tous les fichiers que l’on utilise représentent leurs données selon un certain format, et tous les formats ne permettent pas de stocker la même chose, ils ont chacun leurs particularités.
+On ne représente pas une image de la même manière qu’une musique par exemple.</p>
+<p>On appelle sérialisation l’opération qui permet de transformer en texte des données structurées, de façon à pouvoir reconstruire ces données ensuite.
+À l’inverse, cette reconstruction s’appelle une désérialisation. On parle aussi de <em>parsing</em> pour qualifier l’analyse syntaxique du texte et l’extraction des données.</p>
+
+
+
+    <ul>
+        
+            <li>
+                <a href="index.html#1-1-json">
+                    Format JSON
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#2-2-xml">
+                    Format XML
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#3-3-csv">
+                    Format CSV
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#4-4-bytes">
+                    Chaînes de bytes
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#5-5-pickle">
+                    Sérialisation binaire
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#6-6-autres">
+                    Autres formats
+                </a>
+            </li>
+        
+    </ul>
+
+
+
+    <h2 id="1-1-json">
+        <a href="index.html#1-1-json">
+            Format JSON
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Un premier format de données assez courant en informatique est le JSON (pour <em>JavaScript Object Notation</em>) qui comme son nom l’indique provient du Javascript.
+Il s’est ainsi répandu dans le monde du web pour devenir un format de prédilection pour les échanges entre applications.</p>
+<p>C’est un format textuel, c’est-à-dire qu’il est lisible à l’œil sous forme de texte (contrairement à un format binaire), bien que parfois difficile à écrire à la main.</p>
+<p>Voici à quoi ressemble un document JSON :</p>
+<figure><div class="hljs-code-div hljs-code-json"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"001"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Pythachu"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"foudre"</span>,
+  <span class="hljs-attr">"attaques"</span>: [<span class="hljs-string">"tonnerre"</span>, <span class="hljs-string">"charge"</span>],
+  <span class="hljs-attr">"base_pv"</span>: <span class="hljs-number">50</span>
+}
+</code></pre></div><figcaption>pythachu.json</figcaption></figure>
+<p>On le voit, c’est un format qui ressemble beaucoup au Python.
+Il est cependant plus restreint.</p>
+<p>Un document JSON ne peut comporter des valeurs que de 7 types :</p>
+<ul>
+<li><code>null</code>, équivalent au <code>None</code> de Python.</li>
+<li><code>boolean</code>, un booléen donc, <code>true</code> ou <code>false</code>.</li>
+<li><code>int</code>, un nombre entier (<code>42</code>).</li>
+<li><code>float,</code> un nombre flottant (<code>1.5</code>, <code>1e10</code>).</li>
+<li><code>str</code>, une chaîne de caractère, toujours entre double-guillemets (<code>"hello world"</code>).</li>
+<li><code>array</code>, un tableau de valeurs, équivalent à une liste Python (<code>[8, "foo"]</code>).</li>
+<li><code>object</code>, l’équivalent plus restreint d’un dictionnaire Python : seules les chaînes de caractères peuvent être utilisées en clés, les types des valeurs sont libres (<code>{"key": [3, 5]}</code>).</li>
+</ul>
+<h5 id="module-json">Module <code>json</code><a aria-hidden="true" tabindex="-1" href="index.html#module-json"><span class="icon icon-link"></span></a></h5>
+<p>Ce format est exploitable en Python avec le module <code>json</code> de la bibliothèque standard.
+Le module fournit principalement 4 fonctions : <code>load</code>, <code>loads</code>, <code>dump</code> et <code>dumps</code>.
+Retenez ces noms de fonctions, ils sont courants en Python et communs à beaucoup de modules de sérialisation.</p>
+<h6 id="lecture">Lecture<a aria-hidden="true" tabindex="-1" href="index.html#lecture"><span class="icon icon-link"></span></a></h6>
+<p><code>load</code> est une fonction qui prend en argument un fichier (un objet-fichier ouvert en lecture au préalable) et traite son contenu afin de le renvoyer sous la forme d’un objet Python.
+Par exemple, avec le document <code>pythachu.json</code> présenté plus haut, nous aurions ceci.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">import</span> json</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'pythachu.json'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    json.load(f)</span>
+<span class="hljs-meta">...</span> 
+{'id': '001', 'name': 'Pythachu', 'type': 'foudre', 'attaques': ['tonnerre', 'charge'], 'base_pv': 50}
+</code></pre></div>
+<p>La fonction nous a renvoyé la représentation en Python de notre objet.</p>
+<p><code>loads</code> est similaire à <code>load</code> mais reçoit en argument une chaîne de caractères plutôt qu’un fichier (<em>loads</em> pour <em>load string</em>). Elle traite donc le contenu directement depuis la chaîne.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">json.loads(<span class="hljs-string">'{"name": "Pythard", "base_pv": null}'</span>)</span>
+{'name': 'Pythard', 'base_pv': None}
+</code></pre></div>
+<p>Ces fonctions lèveront une exception si l’entrée n’est pas dans un format correct.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">json.loads(<span class="hljs-string">'{42: "foo"}'</span>)</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+  [...]
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+</code></pre></div>
+<h6 id="écriture">Écriture<a aria-hidden="true" tabindex="-1" href="index.html#écriture"><span class="icon icon-link"></span></a></h6>
+<p><code>dump</code> et <code>dumps</code> sont les fonctions de sérialisation, elles permettent de passer d’un objet Python à sa représentation JSON.</p>
+<p><code>dumps</code> reçoit en argument un objet Python et renvoie sa sérialisation sous forme d’une chaîne de caractères.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">json.dumps([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'foo'</span>])</span>
+'[1, 2, 3, "foo"]'
+</code></pre></div>
+<p><code>dump</code> reçoit un objet Python et un fichier (ouvert en écriture), la sérialisation de l’objet sera écrite dans le fichier donné.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'output.json'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:
+    json.dump({<span class="hljs-string">'key'</span>: <span class="hljs-string">'value'</span>}, f)
+</code></pre></div>
+<figure><div class="hljs-code-div hljs-code-json"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-json">{<span class="hljs-attr">"key"</span>: <span class="hljs-string">"value"</span>}
+</code></pre></div><figcaption>output.json</figcaption></figure>
+<p>Ces deux fonctions prennent aussi un argument nommé <code>indent</code> qui permet de préciser l’indentation du document de sortie.
+Avec <code>json.dump({'key': 'value'}, f, indent=2)</code>, nous aurions obtenu le résultat suivant.</p>
+<figure><div class="hljs-code-div hljs-code-json"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"key"</span>: <span class="hljs-string">"value"</span>
+}
+</code></pre></div><figcaption>output.json</figcaption></figure>
+<p>L’objet passé en argument se doit d’être composé de types convertibles en JSON, une exception sera levée dans le cas contraire.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">json.dumps(<span class="hljs-number">1</span>+<span class="hljs-number">5j</span>)</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+  [...]
+TypeError: Object of type complex is not JSON serializable
+</code></pre></div>
+<h5 id="avantages-et-inconvénients">Avantages et inconvénients<a aria-hidden="true" tabindex="-1" href="index.html#avantages-et-inconvénients"><span class="icon icon-link"></span></a></h5>
+<p>Les avantages de ce format sont qu’il est très répandu et assez lisible, il est donc adapté pour une communication basique entre programmes (notamment des API web) ou pour sauvegarder des données simples (dans les types supportés par le format).</p>
+<p>C’est en revanche un format avec une syntaxe assez stricte, qui ne conviendrait pas à une écriture humaine, évitez-le donc pour un fichier de configuration.
+Il est assez verbeux et ne se prête pas forcément à des échanges « intenses » entre programmes.
+De plus il ne permet pas de représenter tous les objets Python, ce qui peut-être limitant dans certains cas.</p>
+        </div>
+    
+
+    <h2 id="2-2-xml">
+        <a href="index.html#2-2-xml">
+            Format XML
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Le XML (pour <em>eXtensible Markup Language</em>) est un format assez ancien toujours couramment utilisé (SVG, XHTML, docx, ODT).</p>
+<p>C’est un langage dit de balisage, formé de différentes balises imbriquées.
+Il se présente comme suit.</p>
+<figure><div class="hljs-code-div hljs-code-xml"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span></div><pre><code class="hljs language-xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">monster</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"001"</span>></span>
+  <span class="hljs-tag">&#x3C;<span class="hljs-name">name</span>></span>Pythachu<span class="hljs-tag">&#x3C;/<span class="hljs-name">name</span>></span>
+  <span class="hljs-tag">&#x3C;<span class="hljs-name">type</span>></span>foudre<span class="hljs-tag">&#x3C;/<span class="hljs-name">type</span>></span>
+  <span class="hljs-tag">&#x3C;<span class="hljs-name">attaques</span>></span>
+    <span class="hljs-tag">&#x3C;<span class="hljs-name">attaque</span>></span>tonnerre<span class="hljs-tag">&#x3C;/<span class="hljs-name">attaque</span>></span>
+    <span class="hljs-tag">&#x3C;<span class="hljs-name">attaque</span>></span>charge<span class="hljs-tag">&#x3C;/<span class="hljs-name">attaque</span>></span>
+  <span class="hljs-tag">&#x3C;/<span class="hljs-name">attaques</span>></span>
+  <span class="hljs-tag">&#x3C;<span class="hljs-name">base_pv</span>></span>50<span class="hljs-tag">&#x3C;/<span class="hljs-name">base_pv</span>></span>
+<span class="hljs-tag">&#x3C;/<span class="hljs-name">monster</span>></span>
+</code></pre></div><figcaption>pythachu.xml</figcaption></figure>
+<p>On le voit donc, une balise XML s’ouvre par un <code>&#x3C;balise></code> et se ferme avec un <code>&#x3C;/balise></code>, on peut placer à l’intérieur d’autres balises (qui forment donc la hiérarchie du document) ou du texte.</p>
+<p>Il est aussi possible de spécifier des attributs aux balises lors de leur ouverture, comme des métadonnées, avec la syntaxe <code>&#x3C;balise attribut="valeur"></code>.</p>
+<p>Un document XML ne comprend que le texte et pas d’autres types de valeurs, il vous faudra donc opérer les conversions manuellement lors du traitement du document.</p>
+<h5 id="module-xml">Module <code>xml</code><a aria-hidden="true" tabindex="-1" href="index.html#module-xml"><span class="icon icon-link"></span></a></h5>
+<p>L’analyse d’un document XML n’est pas aussi simple que celle d’un JSON.
+Il n’y a pas un unique module pour le faire, et pas de fonction <code>load</code> / <code>dump</code>, juste des fonctions pour opérer sur le document et aller extraire des informations à un endroit précis.</p>
+<p>Il existe plusieurs modules Python dédiés à l’analyse des documents XML, tous regroupés dans le module <code>xml</code>.
+Nous ne nous intéresserons ici qu’au module <code>xml.etree</code>.</p>
+<p>Pour commencer, on va importer le module <code>xml.etree.ElementTree</code> qu’il est courant de simplement appeler <code>ET</code>.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">import</span> xml.etree.ElementTree <span class="hljs-keyword">as</span> ET
+</code></pre></div>
+<h6 id="lire-un-fichier-xml">Lire un fichier XML<a aria-hidden="true" tabindex="-1" href="index.html#lire-un-fichier-xml"><span class="icon icon-link"></span></a></h6>
+<p>Ensuite, on va ouvrir un document XML à l’aide de la fonction <code>parse</code> de ce module.
+La fonction accepte un chemin de fichier en argument, ou directement un objet-fichier.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">tree = ET.parse(<span class="hljs-string">'pythachu.xml'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python">tree</span>
+&#x3C;xml.etree.ElementTree.ElementTree object at 0x7f6ff11b5f70>
+</code></pre></div>
+<div class="custom-block custom-block-information"><div class="custom-block-body"><p>Il est coutume d’appeler <code>tree</code> (<em>arbre</em>) un document XML, par rapport à sa structure arborescente.</p></div></div>
+<p>Une fois ce document chargé, on peut en récupérer l’élément principal (le nœud racine) à l’aide de la méthode <code>getroot</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root = tree.getroot()</span>
+<span class="hljs-meta">>>></span> <span class="python">root</span>
+&#x3C;Element 'monster' at 0x7f6ff0faaef0>
+</code></pre></div>
+<p><code>root</code> est un objet de type <code>Element</code>. Il possède entre autres un attribut <code>tag</code> qui référence le nom de la balise, et un attribut <code>attrib</code> qui contient le dictionnaire d’attributs de la balise.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root.tag</span>
+'monster'
+<span class="hljs-meta">>>></span> <span class="python">root.attrib</span>
+{'id': '001'}
+</code></pre></div>
+<p>Notez qu’il existe aussi la fonction <code>fromstring</code> pour charger un élément à partir d’une chaîne de caractères.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">ET.fromstring(<span class="hljs-string">'&#x3C;foo>bar&#x3C;/foo>'</span>)</span>
+&#x3C;Element 'foo' at 0x7f6ff10e1900>
+</code></pre></div>
+<p>Cette fonction lève une erreur <code>ParseError</code> si la chaîne ne représente pas un document XML valide (il en est de même avec la fonction <code>parse</code>).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">ET.fromstring(<span class="hljs-string">'&#x3C;foo>bar&#x3C;/foo'</span>)</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+  File "/usr/lib/python3.9/xml/etree/ElementTree.py", line 1348, in XML
+    return parser.close()
+xml.etree.ElementTree.ParseError: unclosed token: line 1, column 8
+</code></pre></div>
+<p>Les éléments XML sont des objets Python itérables.
+Itérer dessus revient à parcourir les balises filles.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> elem <span class="hljs-keyword">in</span> root:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(elem)</span>
+<span class="hljs-meta">...</span> 
+&#x3C;Element 'name' at 0x7f6ff0faaf40>
+&#x3C;Element 'type' at 0x7f6ff0faaf90>
+&#x3C;Element 'attaques' at 0x7f6ff0fad040>
+&#x3C;Element 'base_pv' at 0x7f6ff0fad130>
+</code></pre></div>
+<p>Les éléments possèdent aussi une méthode <code>find</code> pour directement trouver une balise fille en fonction de son nom.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root.find(<span class="hljs-string">'name'</span>)</span>
+&#x3C;Element 'name' at 0x7f6ff0faaf40>
+<span class="hljs-meta">>>></span> <span class="python">root.find(<span class="hljs-string">'attaques'</span>)</span>
+&#x3C;Element 'attaques' at 0x7f6ff0fad040>
+</code></pre></div>
+<p>Quand il existe plusieurs éléments du même nom, la méthode <code>findall</code> permet de tous les trouver, elle renvoie une liste d’éléments.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root.find(<span class="hljs-string">'attaques'</span>).findall(<span class="hljs-string">'attaque'</span>)</span>
+[&#x3C;Element 'attaque' at 0x7f6ff0fad090>, &#x3C;Element 'attaque' at 0x7f6ff0fad0e0>]
+</code></pre></div>
+<p>Et l’on peut accéder au contenu textuel des éléments à l’aide de leur attribut <code>text</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root.find(<span class="hljs-string">'name'</span>).text</span>
+'Pythachu'
+<span class="hljs-meta">>>></span> <span class="python">root.find(<span class="hljs-string">'base_pv'</span>).text</span>
+'50'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> attack <span class="hljs-keyword">in</span> root.find(<span class="hljs-string">'attaques'</span>).findall(<span class="hljs-string">'attaque'</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(attack.text)</span>
+<span class="hljs-meta">...</span> 
+tonnerre
+charge
+</code></pre></div>
+<h6 id="construire-un-fichier-xml">Construire un fichier XML<a aria-hidden="true" tabindex="-1" href="index.html#construire-un-fichier-xml"><span class="icon icon-link"></span></a></h6>
+<p>Il est aussi possible de construire un document XML de toute pièce à l’aide d'<code>etree</code>.</p>
+<p>On peut pour cela commencer par créer un élément racine en instanciant un objet <code>Element</code>, en fournissant le nom de la balise comme argument.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root = ET.Element(<span class="hljs-string">'foo'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python">root</span>
+&#x3C;Element 'foo' at 0x7f2496c4c8b0>
+</code></pre></div>
+<p>On peut ensuite facilement ajouter des éléments à un élément parent avec la fonction <code>SubElement</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">ET.SubElement(root, <span class="hljs-string">'bar'</span>)</span>
+&#x3C;Element 'bar' at 0x7f2496c4c8b0>
+<span class="hljs-meta">>>></span> <span class="python">ET.SubElement(root, <span class="hljs-string">'baz'</span>)</span>
+&#x3C;Element 'baz' at 0x7f2496c44f40>
+</code></pre></div>
+<p>Et l’on peut parfaitement ajouter des sous-éléments à un sous-élément, etc.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">sub = ET.SubElement(root, <span class="hljs-string">'list'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python">ET.SubElement(sub, <span class="hljs-string">'item'</span>)</span>
+&#x3C;Element 'item' at 0x7f2496c619a0>
+<span class="hljs-meta">>>></span> <span class="python">ET.SubElement(sub, <span class="hljs-string">'item'</span>)</span>
+&#x3C;Element 'item' at 0x7f2496b2af90>
+</code></pre></div>
+<p>On peut aussi manipuler directement le dictionnaire d’attributs des éléments pour en ajouter ou en modifier.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">root.attrib[<span class="hljs-string">'name'</span>] = <span class="hljs-string">'Doc'</span></span>
+<span class="hljs-meta">>>></span> <span class="python">root.attrib</span>
+{'name': 'Doc'}
+</code></pre></div>
+<p>De même que l’on peut redéfinir l’attribut <code>text</code> pour ajouter du texte à une balise.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-python">root.find(<span class="hljs-string">'bar'</span>).text = <span class="hljs-string">'bonjour'</span>
+</code></pre></div>
+<p>Enfin, le module <code>ET</code> possède une fonction <code>dump</code> pour transformer en chaîne de caractères l’élément que l’on vient de créer.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">ET.dump(root)</span>
+&#x3C;foo name="Doc">&#x3C;bar>bonjour&#x3C;/bar>&#x3C;baz />&#x3C;list>&#x3C;item />&#x3C;item />&#x3C;/list>&#x3C;/foo>
+</code></pre></div>
+<div class="custom-block custom-block-information"><div class="custom-block-body"><p>Notez que les balises type <code>&#x3C;baz /></code> sont des balises auto-fermantes.<br>
+<code>&#x3C;baz/></code> est équivalent à <code>&#x3C;baz>&#x3C;/baz></code>, c’est simplement une balise qui ne contient ni enfants ni texte.</p></div></div>
+<p>Il est aussi possible de créer un document (<code>ElementTree</code>) et d’appeler sa méthode <code>write</code> pour écrire le document dans un fichier.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">ET.ElementTree(root).write(<span class="hljs-string">'doc.xml'</span>)</span>
+</code></pre></div>
+<figure><div class="hljs-code-div hljs-code-xml"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-xml"><span class="hljs-tag">&#x3C;<span class="hljs-name">foo</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Doc"</span>></span><span class="hljs-tag">&#x3C;<span class="hljs-name">bar</span>></span>bonjour<span class="hljs-tag">&#x3C;/<span class="hljs-name">bar</span>></span><span class="hljs-tag">&#x3C;<span class="hljs-name">baz</span> /></span><span class="hljs-tag">&#x3C;<span class="hljs-name">list</span>></span><span class="hljs-tag">&#x3C;<span class="hljs-name">item</span> /></span><span class="hljs-tag">&#x3C;<span class="hljs-name">item</span> /></span><span class="hljs-tag">&#x3C;/<span class="hljs-name">list</span>></span><span class="hljs-tag">&#x3C;/<span class="hljs-name">foo</span>></span>
+</code></pre></div><figcaption>doc.xml</figcaption></figure>
+<hr>
+<p>Il y a beaucoup à dire sur le format XML et tout ne pourra pas être décrit ici.
+Sachez que c’est un format assez complet, qui comporte des mécanismes de validation (schémas XML), d’espaces de noms (<em>namespaces</em>), un sous-langage de requêtage (<code>XPath</code>) et tout un écosystème avec des outils de transformation comme XSLT.<br>
+Tous ces termes peuvent vous amener à des ressources complémentaires sur le format XML.</p>
+<p>Il est aussi à noter que plusieurs types de parseurs existent pour analyser des documents XML.
+L’approche de construction d’un document tel que le fait <code>etree</code> n’est pas la seule.<br>
+Il existe par exemple l’approche SAX qui consiste à ne pas construire le document mais à le parcourir et à appeler des fonctions définies par l’utilisateur pour chaque ouverture/fermeture de balise, ce qui permet de ne pas occuper de place en mémoire.</p>
+<p>Enfin, sachez qu’il existe en Python une bibliothèque externe, <a href="https://lxml.de/"><code>lxml</code></a>, qui simplifie l’usage des documents XML.</p>
+<h5 id="avantages-et-inconvénients">Avantages et inconvénients<a aria-hidden="true" tabindex="-1" href="index.html#avantages-et-inconvénients"><span class="icon icon-link"></span></a></h5>
+<p>Son ancienneté et les technologies autour (XMLSchema, XSLT, XPath) sont les forces de ce format plutôt décrié pour sa verbosité et sa relative illisibilité.<br>
+Un autre avantage se situe au niveau des diverses technologies de <em>parsing</em>, notamment le SAX plutôt adapté aux gros documents et à la réception de données au fil de l’eau.</p>
+<p>Mais le gros point noir d’un point de vue Python est clairement relatif à ces technologies, il est difficile de savoir par où commencer et de manipuler un document XML, là où JSON est très simple d’utilisation.</p>
+        </div>
+    
+
+    <h2 id="3-3-csv">
+        <a href="index.html#3-3-csv">
+            Format CSV
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Le format CSV (<em>Comma-Separated Values</em>) est un format textuel utilisé pour représenter des données tabulaires, comme un tableur.
+Chaque ligne du fichier correspondra à une ligne du tableau, et les lignes sont divisées en colonnes selon un séparateur (généralement <code>,</code> ou <code>;</code>).</p>
+<p>Voici un exemple de document CSV :</p>
+<figure><div class="hljs-code-div hljs-code-csv"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-csv">nom,type,degats
+charge,normal,20
+tonnerre,foudre,50
+jet-de-flotte,aquatique,40
+brûlure,flamme,40
+</code></pre></div><figcaption>attaques.csv</figcaption></figure>
+<p>Une première ligne (l’en-tête) identifie les noms des colonnes, elle est facultative mais il faudra en tenir compte lors de l’analyse du fichier.</p>
+<p>Comme en XML, toutes les données du document sont considérées comme du texte, les nombres devront donc être convertis manuellement.</p>
+<h5 id="module-csv">Module <code>csv</code><a aria-hidden="true" tabindex="-1" href="index.html#module-csv"><span class="icon icon-link"></span></a></h5>
+<p>Le module <code>csv</code> de la bibliothèque standard offre ce qu’il faut pour traiter un document CSV.</p>
+<h6 id="lecture">Lecture<a aria-hidden="true" tabindex="-1" href="index.html#lecture"><span class="icon icon-link"></span></a></h6>
+<p>Le module fournit une fonction <code>reader</code> qui permet de lire un document CSV depuis un fichier.<br>
+Elle reçoit donc le fichier en argument<sup id="fnref-1-N5-8xyBbq3E"><a href="index.html#fn-1-N5-8xyBbq3E" class="footnote-ref">1</a></sup> et renvoie un itérable contenant les lignes du CSV, ces lignes prenant la forme de listes de valeurs.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">import</span> csv</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'attaques.csv'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    reader = csv.reader(f)</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-built_in">print</span>(row)</span>
+<span class="hljs-meta">...</span>
+['nom', 'type', 'degats']
+['charge', 'normal', '20']
+['tonnerre', 'foudre', '50']
+['jet-de-flotte', 'aquatique', '40']
+['brûlure', 'flamme', '40']
+</code></pre></div>
+<p>Comme on le voit notre en-tête est considérée comme une ligne à part entière.
+Il serait néanmoins possible de l’isoler en utilisant par exemple la fonction <code>next</code> de Python (je reviendrai plus tard sur cette fonction).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'attaques.csv'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    reader = csv.reader(f)</span>
+<span class="hljs-meta">...</span> <span class="python">    header = <span class="hljs-built_in">next</span>(reader)</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(<span class="hljs-string">'en-tête:'</span>, header)</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-built_in">print</span>(row)</span>
+<span class="hljs-meta">...</span>
+en-tête: ['nom', 'type', 'degats']
+['charge', 'normal', '20']
+['tonnerre', 'foudre', '50']
+['jet-de-flotte', 'aquatique', '40']
+['brûlure', 'flamme', '40']
+</code></pre></div>
+<p>Mais encore mieux, le module offre aussi l’utilitaire <code>DictReader</code>.
+Celui-ci s’utilise de la même manière que <code>reader</code>, mais il consomme directement l’en-tête et produit les lignes sous forme de dictionnaires plutôt que de listes (utilisant les valeurs de l’en-tête comme clés).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'attaques.csv'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    reader = csv.DictReader(f)</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> reader:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-built_in">print</span>(row)</span>
+<span class="hljs-meta">...</span> 
+{'nom': 'charge', 'type': 'normal', 'degats': '20'}
+{'nom': 'tonnerre', 'type': 'foudre', 'degats': '50'}
+{'nom': 'jet-de-flotte', 'type': 'aquatique', 'degats': '40'}
+{'nom': 'brûlure', 'type': 'flamme', 'degats': '40'}
+</code></pre></div>
+<h6 id="écriture">Écriture<a aria-hidden="true" tabindex="-1" href="index.html#écriture"><span class="icon icon-link"></span></a></h6>
+<p>On trouve de manière similaire une fonction <code>writer</code> recevant un fichier (ouvert en écriture) pour y écrire des données tabulaires au format CSV.
+Cette fonction renvoie un objet possédant une méthode <code>writerow</code> qui sera appelée pour l’écriture de chaque ligne.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'monstres.csv'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    writer = csv.writer(f)</span>
+<span class="hljs-meta">...</span> <span class="python">    writer.writerow([<span class="hljs-string">'nom'</span>, <span class="hljs-string">'type'</span>, <span class="hljs-string">'pv'</span>]) <span class="hljs-comment"># en-tête</span></span>
+<span class="hljs-meta">...</span> <span class="python">    writer.writerow([<span class="hljs-string">'pythachu'</span>, <span class="hljs-string">'foudre'</span>, <span class="hljs-string">'100'</span>])</span>
+<span class="hljs-meta">...</span> <span class="python">    writer.writerow([<span class="hljs-string">'ponytha'</span>, <span class="hljs-string">'flamme'</span>, <span class="hljs-string">'150'</span>])</span>
+<span class="hljs-meta">...</span> 
+13
+21
+20
+</code></pre></div>
+<p>Chaque appel renvoie le nombre d’octets écrits dans le fichier.</p>
+<p>Le code précédent produit donc le fichier suivant.</p>
+<figure><div class="hljs-code-div hljs-code-csv"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-csv">nom,type,pv
+pythachu,foudre,100
+ponytha,flamme,150
+</code></pre></div><figcaption>monstres.csv</figcaption></figure>
+<p>On notera que l’objet possède aussi une méthode <code>writerows</code> pour écrire plusieurs lignes en une fois (en prenant en argument une liste de lignes).</p>
+<p>De même, le module propose aussi <code>DictWriter</code> pour écrire des lignes depuis un dictionnaire.<br>
+Le <code>DictWriter</code> doit être appelé avec en arguments le fichier de sortie mais aussi la ligne d’en-tête, qui servira à extraire les bonnes valeurs des dictionnaires.
+La ligne d’en-tête en elle-même sera écrite en appelant la méthode <code>writeheader</code> de l’objet.</p>
+<p>Ainsi, notre code précédent est équivalent à :</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'monstres.csv'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:
+    writer = csv.DictWriter(f, [<span class="hljs-string">'nom'</span>, <span class="hljs-string">'type'</span>, <span class="hljs-string">'pv'</span>])
+    writer.writeheader()
+    writer.writerow({<span class="hljs-string">'nom'</span>: <span class="hljs-string">'pythachu'</span>, <span class="hljs-string">'type'</span>: <span class="hljs-string">'foudre'</span>, <span class="hljs-string">'pv'</span>: <span class="hljs-string">'100'</span>})
+    writer.writerow({<span class="hljs-string">'nom'</span>: <span class="hljs-string">'ponytha'</span>, <span class="hljs-string">'type'</span>: <span class="hljs-string">'flamme'</span>, <span class="hljs-string">'pv'</span>: <span class="hljs-string">'150'</span>})
+</code></pre></div>
+<h6 id="dialectes">Dialectes<a aria-hidden="true" tabindex="-1" href="index.html#dialectes"><span class="icon icon-link"></span></a></h6>
+<p>Une particularité du CSV est de supporter plusieurs dialectes, car différents outils apportent au format leurs propres spécifications.
+<code>,</code> n’est pas toujours le séparateur de colonnes par exemple.
+Le dialecte définit aussi quels caractères d’échappement utiliser dans différents contextes.</p>
+<p>Ainsi, toutes les fonctions que nous avons vu acceptent un argument nommé <code>dialect</code> qui permet de choisir le dialecte à utiliser (il s’agit d'<code>'excel'</code> par défaut), ou directement des arguments correspondant aux options à définir (<code>delimiter</code>, <code>quotechar</code>, <code>escapechar</code>, etc.).</p>
+<h5 id="avantages-et-inconvénients">Avantages et inconvénients<a aria-hidden="true" tabindex="-1" href="index.html#avantages-et-inconvénients"><span class="icon icon-link"></span></a></h5>
+<p>Le format CSV a l’intérêt d’être interopérable, malgré ses multiples dialectes qui peuvent rendre son utilisation confuse.
+Il est néanmoins assez lisible et facile d’utilisation.</p>
+<p>C’est par contre un format assez limité qui ne permet que de représenter des données tabulaires simples (peu adapté pour formater des données arborescentes) et qui ne permet pas de typer ses valeurs.</p>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn-1-N5-8xyBbq3E">En réalité tout itérable sur des lignes (chaînes de caractères) est accepté en entrée, un fichier correspond à cette définition.<a href="index.html#fnref-1-N5-8xyBbq3E" class="footnote-backref" title="Retourner au texte de la note 1">↩</a></li>
+</ol>
+</div>
+        </div>
+    
+
+    <h2 id="4-4-bytes">
+        <a href="index.html#4-4-bytes">
+            Chaînes de bytes
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Pour la suite nous allons quitter les formats textuels et nous intéresser aux formats dits « binaires », qui ne sont donc pas lisibles comme du texte.
+Et pour cela, nous avons besoin de découvrir un autre type de Python, le type <code>bytes</code>.</p>
+<p>Ce type représente une chaîne d’octets, les octets étant l’unité de stockage des informations sur un ordinateur, soit des nombres de 8 bits (de 0 à 255 inclus).
+Un objet <em>bytes</em> peut donc être vu comme un tableau de nombres, chaque nombre étant la valeur d’un octet.</p>
+<p>On peut d’ailleurs définir un objet <em>bytes</em> à partir d’un tel tableau.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">bytes</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span>
+b'\x01\x02\x03'
+</code></pre></div>
+<p>La représentation de notre objet peut sembler perturbante, mais il s’agit bien de notre tableau.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">data = <span class="hljs-built_in">bytes</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span>
+<span class="hljs-meta">>>></span> <span class="python">data[<span class="hljs-number">0</span>]</span>
+1
+</code></pre></div>
+<p>Comme les chaînes de caractères, les chaînes d’octets sont immutables.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">data[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span></span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+TypeError: 'bytes' object does not support item assignment
+</code></pre></div>
+<p>Les deux types sont d’ailleurs assez semblables, ils étaient même confondus en Python 2, les deux identifiant des chaînes.<br>
+Les caractères ne sont qu’une abstraction pour interpréter des octets comme du texte, et une chaîne de caractères est ainsi une chaîne d’octets munie d’une règle définissant comment interpréter les octets en caractères.
+Cette règle est appelée un encodage, mais j’y reviendrai ensuite.</p>
+<p>Cette similitude entre les deux s’appuie entre autres sur la table ASCII qui établit une correspondance entre certains caractères (notamment les caractères alphanumériques latins « de base » — sans accents — et les chiffres, ainsi que des caractères de contrôle) et des octets, elle sert encore aujourd’hui de base à de nombreux encodages.</p>
+<figure><div class="table-wrapper"><table><thead><tr><th colspan="1" rowspan="1"></th><th colspan="1" rowspan="1"><p>00</p></th><th colspan="1" rowspan="1"><p>10</p></th><th colspan="1" rowspan="1"><p>20</p></th><th colspan="1" rowspan="1"><p>30</p></th><th colspan="1" rowspan="1"><p>40</p></th><th colspan="1" rowspan="1"><p>50</p></th><th colspan="1" rowspan="1"><p>60</p></th><th colspan="1" rowspan="1"><p>70</p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><strong>0</strong></p></td><td colspan="1" rowspan="1"><p><code>NUL</code></p></td><td colspan="1" rowspan="1"><p><code>DLE</code></p></td><td colspan="1" rowspan="1"><p><code>' '</code></p></td><td colspan="1" rowspan="1"><p><code>'0'</code></p></td><td colspan="1" rowspan="1"><p><code>'@'</code></p></td><td colspan="1" rowspan="1"><p><code>'P'</code></p></td><td colspan="1" rowspan="1"><p><code>'</code>'`</p></td><td colspan="1" rowspan="1"><p><code>'p'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>1</strong></p></td><td colspan="1" rowspan="1"><p><code>SOH</code></p></td><td colspan="1" rowspan="1"><p><code>DC1</code></p></td><td colspan="1" rowspan="1"><p><code>'!'</code></p></td><td colspan="1" rowspan="1"><p><code>'1'</code></p></td><td colspan="1" rowspan="1"><p><code>'A'</code></p></td><td colspan="1" rowspan="1"><p><code>'Q'</code></p></td><td colspan="1" rowspan="1"><p><code>'a'</code></p></td><td colspan="1" rowspan="1"><p><code>'q'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>2</strong></p></td><td colspan="1" rowspan="1"><p><code>STX</code></p></td><td colspan="1" rowspan="1"><p><code>DC2</code></p></td><td colspan="1" rowspan="1"><p><code>'"'</code></p></td><td colspan="1" rowspan="1"><p><code>'2'</code></p></td><td colspan="1" rowspan="1"><p><code>'B'</code></p></td><td colspan="1" rowspan="1"><p><code>'R'</code></p></td><td colspan="1" rowspan="1"><p><code>'b'</code></p></td><td colspan="1" rowspan="1"><p><code>'r'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>3</strong></p></td><td colspan="1" rowspan="1"><p><code>ETX</code></p></td><td colspan="1" rowspan="1"><p><code>DC3</code></p></td><td colspan="1" rowspan="1"><p><code>'#'</code></p></td><td colspan="1" rowspan="1"><p><code>'3'</code></p></td><td colspan="1" rowspan="1"><p><code>'C'</code></p></td><td colspan="1" rowspan="1"><p><code>'S'</code></p></td><td colspan="1" rowspan="1"><p><code>'c'</code></p></td><td colspan="1" rowspan="1"><p><code>'s'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>4</strong></p></td><td colspan="1" rowspan="1"><p><code>EOT</code></p></td><td colspan="1" rowspan="1"><p><code>DC4</code></p></td><td colspan="1" rowspan="1"><p><code>'$'</code></p></td><td colspan="1" rowspan="1"><p><code>'4'</code></p></td><td colspan="1" rowspan="1"><p><code>'D'</code></p></td><td colspan="1" rowspan="1"><p><code>'T'</code></p></td><td colspan="1" rowspan="1"><p><code>'d'</code></p></td><td colspan="1" rowspan="1"><p><code>'t'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>5</strong></p></td><td colspan="1" rowspan="1"><p><code>ENQ</code></p></td><td colspan="1" rowspan="1"><p><code>NAK</code></p></td><td colspan="1" rowspan="1"><p><code>'%'</code></p></td><td colspan="1" rowspan="1"><p><code>'5'</code></p></td><td colspan="1" rowspan="1"><p><code>'E'</code></p></td><td colspan="1" rowspan="1"><p><code>'U'</code></p></td><td colspan="1" rowspan="1"><p><code>'e'</code></p></td><td colspan="1" rowspan="1"><p><code>'u'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>6</strong></p></td><td colspan="1" rowspan="1"><p><code>ACK</code></p></td><td colspan="1" rowspan="1"><p><code>SYN</code></p></td><td colspan="1" rowspan="1"><p><code>'&#x26;'</code></p></td><td colspan="1" rowspan="1"><p><code>'6'</code></p></td><td colspan="1" rowspan="1"><p><code>'F'</code></p></td><td colspan="1" rowspan="1"><p><code>'V'</code></p></td><td colspan="1" rowspan="1"><p><code>'f'</code></p></td><td colspan="1" rowspan="1"><p><code>'v'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>7</strong></p></td><td colspan="1" rowspan="1"><p><code>BEL</code></p></td><td colspan="1" rowspan="1"><p><code>ETB</code></p></td><td colspan="1" rowspan="1"><p><code>"'"</code></p></td><td colspan="1" rowspan="1"><p><code>'7'</code></p></td><td colspan="1" rowspan="1"><p><code>'G'</code></p></td><td colspan="1" rowspan="1"><p><code>'W'</code></p></td><td colspan="1" rowspan="1"><p><code>'g'</code></p></td><td colspan="1" rowspan="1"><p><code>'w'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>8</strong></p></td><td colspan="1" rowspan="1"><p><code> BS</code></p></td><td colspan="1" rowspan="1"><p><code>CAN</code></p></td><td colspan="1" rowspan="1"><p><code>'('</code></p></td><td colspan="1" rowspan="1"><p><code>'8'</code></p></td><td colspan="1" rowspan="1"><p><code>'H'</code></p></td><td colspan="1" rowspan="1"><p><code>'X'</code></p></td><td colspan="1" rowspan="1"><p><code>'h'</code></p></td><td colspan="1" rowspan="1"><p><code>'x'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>9</strong></p></td><td colspan="1" rowspan="1"><p><code> HT</code></p></td><td colspan="1" rowspan="1"><p><code> EM</code></p></td><td colspan="1" rowspan="1"><p><code>')'</code></p></td><td colspan="1" rowspan="1"><p><code>'9'</code></p></td><td colspan="1" rowspan="1"><p><code>'I'</code></p></td><td colspan="1" rowspan="1"><p><code>'Y'</code></p></td><td colspan="1" rowspan="1"><p><code>'i'</code></p></td><td colspan="1" rowspan="1"><p><code>'y'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>A</strong></p></td><td colspan="1" rowspan="1"><p><code> LF</code></p></td><td colspan="1" rowspan="1"><p><code>SUB</code></p></td><td colspan="1" rowspan="1"><p><code>'*'</code></p></td><td colspan="1" rowspan="1"><p><code>':'</code></p></td><td colspan="1" rowspan="1"><p><code>'J'</code></p></td><td colspan="1" rowspan="1"><p><code>'Z'</code></p></td><td colspan="1" rowspan="1"><p><code>'j'</code></p></td><td colspan="1" rowspan="1"><p><code>'z'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>B</strong></p></td><td colspan="1" rowspan="1"><p><code> VT</code></p></td><td colspan="1" rowspan="1"><p><code>ESC</code></p></td><td colspan="1" rowspan="1"><p><code>'+'</code></p></td><td colspan="1" rowspan="1"><p><code>';'</code></p></td><td colspan="1" rowspan="1"><p><code>'K'</code></p></td><td colspan="1" rowspan="1"><p><code>'['</code></p></td><td colspan="1" rowspan="1"><p><code>'k'</code></p></td><td colspan="1" rowspan="1"><p><code>'{'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>C</strong></p></td><td colspan="1" rowspan="1"><p><code> FF</code></p></td><td colspan="1" rowspan="1"><p><code> FS</code></p></td><td colspan="1" rowspan="1"><p><code>','</code></p></td><td colspan="1" rowspan="1"><p><code>'&#x3C;'</code></p></td><td colspan="1" rowspan="1"><p><code>'L'</code></p></td><td colspan="1" rowspan="1"><p><code>'\'</code></p></td><td colspan="1" rowspan="1"><p><code>'l'</code></p></td><td colspan="1" rowspan="1"><p><code>'|'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>D</strong></p></td><td colspan="1" rowspan="1"><p><code> CR</code></p></td><td colspan="1" rowspan="1"><p><code> GS</code></p></td><td colspan="1" rowspan="1"><p><code>'-'</code></p></td><td colspan="1" rowspan="1"><p><code>'='</code></p></td><td colspan="1" rowspan="1"><p><code>'M'</code></p></td><td colspan="1" rowspan="1"><p><code>']'</code></p></td><td colspan="1" rowspan="1"><p><code>'m'</code></p></td><td colspan="1" rowspan="1"><p><code>'}'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>E</strong></p></td><td colspan="1" rowspan="1"><p><code> SO</code></p></td><td colspan="1" rowspan="1"><p><code> RS</code></p></td><td colspan="1" rowspan="1"><p><code>'.'</code></p></td><td colspan="1" rowspan="1"><p><code>'>'</code></p></td><td colspan="1" rowspan="1"><p><code>'N'</code></p></td><td colspan="1" rowspan="1"><p><code>'^'</code></p></td><td colspan="1" rowspan="1"><p><code>'n'</code></p></td><td colspan="1" rowspan="1"><p><code>'~'</code></p></td></tr><tr><td colspan="1" rowspan="1"><p><strong>F</strong></p></td><td colspan="1" rowspan="1"><p><code> SI</code></p></td><td colspan="1" rowspan="1"><p><code> US</code></p></td><td colspan="1" rowspan="1"><p><code>'/'</code></p></td><td colspan="1" rowspan="1"><p><code>'?'</code></p></td><td colspan="1" rowspan="1"><p><code>'O'</code></p></td><td colspan="1" rowspan="1"><p><code>'_'</code></p></td><td colspan="1" rowspan="1"><p><code>'o'</code></p></td><td colspan="1" rowspan="1"><p><code>DEL</code></p></td></tr></tbody></table></div><figcaption>Table ASCII</figcaption></figure>
+<p>C’est pourquoi, lors de l’affichage, Python essaie généralement de représenter un objet <em>bytes</em> comme du texte, en s’appuyant sur la table ASCII.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">bytes</span>([<span class="hljs-number">65</span>, <span class="hljs-number">66</span>, <span class="hljs-number">67</span>])</span>
+b'ABC'
+</code></pre></div>
+<p>65, 66 et 67 sont les valeurs ASCII des caractères <code>A</code>, <code>B</code> et <code>C</code> (ou <code>0x41</code>, <code>0x42</code> et <code>0x43</code> en hexadécimal).</p>
+<p>On le voit ainsi, une chaîne d’octets peut simplement se définir comme une chaîne de caractères préfixée d’un <code>b</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'foobar'</span></span>
+b'foobar'
+</code></pre></div>
+<p>Cela ne change rien au fait que la chaîne ainsi créée est toujours considérée comme un tableau de nombres.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'foobar'</span>[<span class="hljs-number">0</span>]</span>
+102
+</code></pre></div>
+<p>Bien sûr, seulement les caractères de la table ASCII sont utilisables pour construire une chaîne d’octet, impossible d’y utiliser des caractères spéciaux qui n’ont aucune correspondance.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'été'</span></span>
+  File "&#x3C;stdin>", line 1
+SyntaxError: bytes can only contain ASCII literal characters.
+</code></pre></div>
+<p>Et comme on l’a vu plus haut, on peut utiliser la notation <code>\xNN</code> pour insérer des octets particuliers, <code>NN</code> étant la valeur de l’octet en hexadécimal.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">data = <span class="hljs-string">b'\x01\x2A\x61'</span></span>
+<span class="hljs-meta">>>></span> <span class="python">data[<span class="hljs-number">1</span>]</span>
+42
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">hex</span>(data[<span class="hljs-number">1</span>])</span>
+'0x2a'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">hex</span>(data[<span class="hljs-number">2</span>])</span>
+'0x61'
+</code></pre></div>
+<p>Les octets pouvant être interprétés comme des caractères sont affichés comme tel par Python pour faciliter la lisibilité.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">data</span>
+b'\x01*a'
+</code></pre></div>
+<p>Qui dit similitude avec les chaînes de caractères dit aussi opérations similaires.
+Ainsi il est possible de concaténer des chaînes d’octets et d’y appliquer pratiquement les mêmes méthodes.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'abc'</span> + <span class="hljs-string">b'def'</span></span>
+b'abcdef'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'foo'</span>.replace(<span class="hljs-string">b'o'</span>, <span class="hljs-string">b'e'</span>)</span>
+b'fee'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'a;b;c'</span>.split(<span class="hljs-string">b';'</span>)</span>
+[b'a', b'b', b'c']
+</code></pre></div>
+<p>Mais les deux types ne sont pas compatibles entre-eux.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'abc'</span> + <span class="hljs-string">'def'</span></span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+TypeError: can't concat str to bytes
+</code></pre></div>
+<h5 id="encodages">Encodages<a aria-hidden="true" tabindex="-1" href="index.html#encodages"><span class="icon icon-link"></span></a></h5>
+<p>Il est en revanche possible de convertir l’un vers l’autre.
+Les chaînes de caractères possèdent une méthode <code>encode</code> renvoyant une chaîne d’octets.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'foobar'</span>.encode()</span>
+b'foobar'
+</code></pre></div>
+<p>À l’inverse, les chaînes d’octets ont une méthode <code>decode</code> pour les convertir en chaînes de caractères.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'foobar'</span>.decode()</span>
+'foobar'
+</code></pre></div>
+<p>Je n’utilise ici que des caractères de la table ASCII, mais cela fonctionne aussi avec des caractères « spéciaux ».</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'été'</span>.encode()</span>
+b'\xc3\xa9t\xc3\xa9'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'\xc3\xa9t\xc3\xa9'</span>.decode()</span>
+'été'
+</code></pre></div>
+<p>Comment cela fonctionne ? Avec la notion d’encodage dont je parlais plus haut.
+Un encodage c’est une table qui fait la correspondance entre des caractères et des octets, associant un ou plusieurs octets à un caractère.
+La table ASCII est un encodage (mais avec un ensemble limité de caractères).</p>
+<p>En Python, on utilise plus couramment des encodages unicode — qui peuvent représenter tous les caractères existant — et plus particulièrement UTF-8.
+C’est cet encodage UTF-8 qui a été utilisé par défaut lors des opérations précédentes.
+En effet, les méthodes <code>encode</code> et <code>decode</code> peuvent prendre un argument optionnel pour spécifier l’encodage vers lequel encode / depuis lequel décoder.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'été'</span>.encode(<span class="hljs-string">'utf-8'</span>)</span>
+b'\xc3\xa9t\xc3\xa9'
+</code></pre></div>
+<p>On notera que la taille varie entre chaînes de caractères et chaînes d’octets, l’appel à <code>len</code> nous renverra 3 dans le premier cas et 5 dans le second. C’est bien parce que l’on compte soit les caractères soit les octets.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">len</span>(<span class="hljs-string">'été'</span>)</span>
+3
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">len</span>(<span class="hljs-string">'été'</span>.encode(<span class="hljs-string">'utf-8'</span>))</span>
+5
+</code></pre></div>
+<p>D’autres encodages existent et ils ont chacun leurs particularités.
+Par exemple l’UTF-32 est un encodage unicode qui représente chaque caractère sur 4 octets.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'été'</span>.encode(<span class="hljs-string">'utf-32'</span>)</span>
+b'\xff\xfe\x00\x00\xe9\x00\x00\x00t\x00\x00\x00\xe9\x00\x00\x00'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'abc'</span>.encode(<span class="hljs-string">'utf-32'</span>)</span>
+b'\xff\xfe\x00\x00a\x00\x00\x00b\x00\x00\x00c\x00\x00\x00'
+</code></pre></div>
+<p>Ou encore l’encodage latin-1 (ou iso-8859–1) un encodage encore parfois utilisé sur certains systèmes en Europe (Windows notamment).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'été'</span>.encode(<span class="hljs-string">'latin-1'</span>)</span>
+b'\xe9t\xe9'
+</code></pre></div>
+<p>Mais latin-1 n’est pas un encodage unicode et ne pourra donc pas représenter tous les caractères.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'♫'</span>.encode(<span class="hljs-string">'utf-8'</span>)</span>
+b'\xe2\x99\xab'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'♫'</span>.encode(<span class="hljs-string">'latin-1'</span>)</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+UnicodeEncodeError: 'latin-1' codec can't encode character '\u266b' in position 0: ordinal not in range(256)
+</code></pre></div>
+<p>Une chaîne ayant été encodée avec un certain encodage doit toujours être décodé avec ce même encodage, cela donnerait sinon lieu à des erreurs ou des incohérences.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'été'</span>.encode(<span class="hljs-string">'utf-8'</span>).decode(<span class="hljs-string">'latin-1'</span>)</span>
+'Ã©tÃ©'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'été'</span>.encode(<span class="hljs-string">'latin-1'</span>).decode(<span class="hljs-string">'utf-8'</span>)</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe9 in position 0: invalid continuation byte
+</code></pre></div>
+<p>On notera aussi que l’ascii est reconnu comme un encodage à part entière par les méthodes <code>encode</code> et <code>decode</code>. Bien sûr, seuls les caractères de la table ASCII sont autorisés dans les chaînes.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">'abcdef'</span>.encode(<span class="hljs-string">'ascii'</span>)</span>
+b'abcdef'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">b'abcdef'</span>.decode(<span class="hljs-string">'ascii'</span>)</span>
+'abcdef'
+</code></pre></div>
+<p>Les encodages interviennent quand vous traitez des données extérieures au programme, et notamment des fichiers.
+Ainsi, la fonction <code>open</code> dispose d’un paramètre <code>encoding</code> pour préciser l’encodage du fichier à ouvrir.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'output.txt'</span>, <span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'latin-1'</span>) <span class="hljs-keyword">as</span> f:
+    f.write(<span class="hljs-string">'été'</span>)
+</code></pre></div>
+<p>Gardez donc en tête qu’un fichier texte (ou même n’importe quel texte) est toujours lié à un encodage, et que celui-ci n’est pas toujours UTF-8.
+Souvent l’encodage sera renseigné comme métadonnée avec le fichier, comme c’est le cas en HTTP avec l’en-tête <code>Content-Type</code> qui précise l’encodage des données.</p>
+<h5 id="mode-binaire">Mode binaire<a aria-hidden="true" tabindex="-1" href="index.html#mode-binaire"><span class="icon icon-link"></span></a></h5>
+<p>Mais tous les fichiers ne représentent pas du texte, même sous des encodages particuliers, les images par exemple.
+Ainsi, on voudrait parfois pouvoir traiter un fichier comme des données brutes, comme des octets.</p>
+<p>Cela est possible à l’aide du mode binaire, il s’agit d’un caractère <code>b</code> ajouté au mode d’ouverture du fichier.
+Ce mode aura pour effet que toutes les opérations sur le fichier traiteront des chaînes d’octets et non des chaînes de caractères.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'output.txt'</span>, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    f.read()</span>
+<span class="hljs-meta">...</span> 
+b'\xe9t\xe9'
+</code></pre></div>
+<p>Il en est de même en écriture, où les méthodes attendront des chaînes d’octets.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'output.txt'</span>, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    f.write(<span class="hljs-string">b'\x01\x02\x03'</span>)</span>
+<span class="hljs-meta">...</span> 
+3
+</code></pre></div>
+<p>Ce mode nous sera utile pour maintenant aborder un autre format de sérialisation des données, un format binaire.</p>
+        </div>
+    
+
+    <h2 id="5-5-pickle">
+        <a href="index.html#5-5-pickle">
+            Sérialisation binaire
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Python possède un format de sérialisation qui lui est propre, disponible via le module <code>pickle</code>, capable de gérer à peu près tous les types Python.
+C’est donc un format très pratique pour enregistrer l’état d’un programme.</p>
+<p>Étant un format binaire, je ne vais pas décrire à quoi il ressemble, ça serait juste un tas d’octets illisibles.
+Sachez juste que le format gère de nombreux objets Python, pour peu que leur type soit connu par le programme qui chargera les données, en inspectant ce qui est contenu dans ces objets.</p>
+<h5 id="module-pickle">Module <code>pickle</code><a aria-hidden="true" tabindex="-1" href="index.html#module-pickle"><span class="icon icon-link"></span></a></h5>
+<p>Le module utilise l’interface dont je vous avais parlé plus tôt pour <code>json</code>, et propose donc les fonctions <code>load</code>, <code>loads</code>, <code>dump</code> et <code>dumps</code>.</p>
+<h6 id="écriture">Écriture<a aria-hidden="true" tabindex="-1" href="index.html#écriture"><span class="icon icon-link"></span></a></h6>
+<p>Puisqu’il nous est impossible de partir d’un fichier existant, nous débuterons cette fois par l’écriture.
+Elle se fait donc à l’aider des fonctions <code>dump</code> et <code>dumps</code>.</p>
+<p><code>dump</code> prend en argument un objet Python et un fichier (ouvert en écriture) vers lequel le sérialiser.<br>
+Il est possible d’enchaîner les appels à <code>dump</code> pour écrire plusieurs objets dans le fichier.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span><span data-count="13"></span><span data-count="14"></span><span data-count="15"></span><span data-count="16"></span><span data-count="17"></span><span data-count="18"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'game.dat'</span>, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> f:
+    monsters = {
+        <span class="hljs-string">'001'</span>: {
+            <span class="hljs-string">'name'</span>: <span class="hljs-string">'Pythachu'</span>,
+            <span class="hljs-string">'attaques'</span>: [<span class="hljs-string">'charge'</span>, <span class="hljs-string">'tonnerre'</span>],
+        },
+        <span class="hljs-string">'002'</span>: {
+            <span class="hljs-string">'name'</span>: <span class="hljs-string">'Pythard'</span>,
+            <span class="hljs-string">'attaques'</span>: [<span class="hljs-string">'charge'</span>, <span class="hljs-string">'jet-de-flotte'</span>],
+        },
+    }
+    pickle.dump(monsters, f)
+    attacks = [
+        {<span class="hljs-string">'name'</span>: <span class="hljs-string">'charge'</span>, <span class="hljs-string">'type'</span>: <span class="hljs-string">'normal'</span>, <span class="hljs-string">'damage'</span>: <span class="hljs-number">20</span>},
+        {<span class="hljs-string">'name'</span>: <span class="hljs-string">'tonnerre'</span>, <span class="hljs-string">'type'</span>: <span class="hljs-string">'foudre'</span>, <span class="hljs-string">'damage'</span>: <span class="hljs-number">50</span>},
+        {<span class="hljs-string">'name'</span>: <span class="hljs-string">'jet-de-flotte'</span>, <span class="hljs-string">'type'</span>: <span class="hljs-string">'aquatique'</span>, <span class="hljs-string">'damage'</span>: <span class="hljs-number">50</span>},
+    ]
+    pickle.dump(attacks, f)
+</code></pre></div>
+<p>La méthode <code>dumps</code> prend simplement un objet et renvoie une chaîne d’octets qui sera compatible avec <code>loads</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">pickle.dumps([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</span>
+b'\x80\x04\x95\x0b\x00\x00\x00\x00\x00\x00\x00]\x94(K\x01K\x02K\x03e.'
+<span class="hljs-meta">>>></span> <span class="python">pickle.dumps(<span class="hljs-number">2</span>+<span class="hljs-number">1j</span>)</span>
+b'\x80\x04\x95.\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x07complex\x94\x93\x94G@\x00\x00\x00\x00\x00\x00\x00G?\xf0\x00\x00\x00\x00\x00\x00\x86\x94R\x94.'
+</code></pre></div>
+<h6 id="lecture">Lecture<a aria-hidden="true" tabindex="-1" href="index.html#lecture"><span class="icon icon-link"></span></a></h6>
+<p>La méthode <code>loads</code> prend donc en argument une chaîne d’octets, reconsruit l’objet Python représenté et le renvoie.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">pickle.loads(<span class="hljs-string">b'\x80\x04\x95\x0b\x00\x00\x00\x00\x00\x00\x00]\x94(K\x01K\x02K\x03e.'</span>)</span>
+[1, 2, 3]
+<span class="hljs-meta">>>></span> <span class="python">pickle.loads(<span class="hljs-string">b'\x80\x04\x95.\x00\x00\x00\x00\x00\x00\x00\x8c\x08builtins\x94\x8c\x07complex\x94\x93\x94G@\x00\x00\x00\x00\x00\x00\x00G?\xf0\x00\x00\x00\x00\x00\x00\x86\x94R\x94.'</span>)</span>
+(2+1j)
+</code></pre></div>
+<p><code>load</code> prend elle un fichier et renvoie aussi l’objet qui y est contenu. Comme pour <code>dump</code>, il est possible d’appeler <code>load</code> plusieurs fois de suite sur un même fichier (pour y lire les différents objets écrits).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'game.dat'</span>, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(<span class="hljs-string">'monstres :'</span>, pickle.load(f))</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(<span class="hljs-string">'attaques :'</span>, pickle.load(f))</span>
+<span class="hljs-meta">...</span> 
+monstres : {'001': {'name': 'Pythachu', 'attaques': ['charge', 'tonnerre']}, '002': {'name': 'Pythard', 'attaques': ['charge', 'jet-de-flotte']}}
+attaques : [{'name': 'charge', 'type': 'normal', 'damage': 20}, {'name': 'tonnerre', 'type': 'foudre', 'damage': 50}, {'name': 'jet-de-flotte', 'type': 'aquatique', 'damage': 50}]
+</code></pre></div>
+<h5 id="avantages-et-inconvénients">Avantages et inconvénients<a aria-hidden="true" tabindex="-1" href="index.html#avantages-et-inconvénients"><span class="icon icon-link"></span></a></h5>
+<p>Vous l’aurez compris, <code>pickle</code> est un format très pratique en Python, puisqu’il permet de tout représenter ou presque.
+Il n’est en revanche pas interopérable puisque applicable seulement à Python.</p>
+<div class="custom-block custom-block-warning"><div class="custom-block-body"><p>Attention aussi, ce format permet l’exécution de code arbitraire ce qui présente donc une grosse faille de sécurité sur des données non sûres, il est donc à bannir pour tout ce qui reçoit des données distantes sans couche supplémentaire de sécurité.</p></div></div>
+<p>Dans notre cas d’une sauvegarde de l’état d’un programme, c’est un assez bon choix.</p>
+        </div>
+    
+
+    <h2 id="6-6-autres">
+        <a href="index.html#6-6-autres">
+            Autres formats
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Nous avons fait un tour des modules disponibles dans la bibliothèque standard de Python, mais ce ne sont pas les seuls formats existant.
+Pour les autres, il faudra en revanche s’appuyer sur des modules tiers, nous verrons par la suite comment en installer.</p>
+<p>Voici donc quelques autres formats que vous pourriez croiser et qui se prêtent à diverses utilisations.</p>
+<h6 id="toml">toml<a aria-hidden="true" tabindex="-1" href="index.html#toml"><span class="icon icon-link"></span></a></h6>
+<p>Le format <em>toml</em> est un format simple adapté à des fichiers de configuration.
+Il permet de représenter des couples clé/valeur typés regroupés en sections.</p>
+<figure><div class="hljs-code-div hljs-code-toml"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-toml"><span class="hljs-section">[window]</span>
+<span class="hljs-attr">width</span> = <span class="hljs-number">800</span>
+<span class="hljs-attr">height</span> = <span class="hljs-number">600</span>
+
+<span class="hljs-section">[game]</span>
+<span class="hljs-attr">save</span> = <span class="hljs-string">"game.dat"</span>
+</code></pre></div><figcaption>config.toml</figcaption></figure>
+<ul>
+<li>Page de la bibliothèque <code>toml</code> en Python : <a href="https://github.com/uiri/toml">https://github.com/uiri/toml</a></li>
+</ul>
+<h6 id="yaml">yaml<a aria-hidden="true" tabindex="-1" href="index.html#yaml"><span class="icon icon-link"></span></a></h6>
+<p><em>YAML</em> est un format de données riches, semblable à <em>JSON</em> mais plus axé sur la lisibilité.
+Il permet de décrire de manière claire des données complexes.</p>
+<figure><div class="hljs-code-div hljs-code-yaml"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-yaml"><span class="hljs-attr">id:</span> <span class="hljs-number">001</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Pythachu</span>
+<span class="hljs-attr">type:</span> <span class="hljs-string">foudre</span>
+<span class="hljs-attr">attaques:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">tonnerre</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">charge</span>
+<span class="hljs-attr">base_pv:</span> <span class="hljs-number">50</span>
+</code></pre></div><figcaption>pythachu.yaml</figcaption></figure>
+<ul>
+<li>Page de la bibliothèque <code>PyYAML</code> en Python : <a href="https://pyyaml.org/wiki/PyYAML">https://pyyaml.org/wiki/PyYAML</a></li>
+</ul>
+<h6 id="msgpack">msgpack<a aria-hidden="true" tabindex="-1" href="index.html#msgpack"><span class="icon icon-link"></span></a></h6>
+<p><em>msgpack</em> est lui aussi un format de données assez semblable à JSON, à l’exception près que c’est un format binaire.
+Il permet donc de manière compacte de représenter nombres, chaînes de caractères, listes et dictionnaires.</p>
+<p>C’est un format interopérable qui possède des bibliothèques pour à peu près tous les langages.</p>
+<ul>
+<li>Page du projet <code>msgpack</code> : <a href="https://msgpack.org/">https://msgpack.org/</a></li>
+</ul>
+<h6 id="protobuf">Protobuf<a aria-hidden="true" tabindex="-1" href="index.html#protobuf"><span class="icon icon-link"></span></a></h6>
+<p><em>Protobuf</em> est un format plus complexe destiné à établir des protocoles de communication entre programmes.
+Les programmes doivent donc utiliser un protocole commun qui définit les types des données transmises dans un message.</p>
+<p>Cela permet d’omettre les informations de typage dans la sérialisation, et d’avoir une assurance de la validité des données transmises.</p>
+<ul>
+<li>Page du projet <code>protobuf</code> : <a href="https://developers.google.com/protocol-buffers">https://developers.google.com/protocol-buffers</a></li>
+</ul>
+        </div>
+    
+
+
+<hr />
+
+
+
+    
+    
+        
+
+
+
+    <ul class="pagination pagination-bottom pagination-chapter">
+        
+            <li class="prev">
+                <a
+                    
+                        href="../6-exceptions/index.html"
+                    
+                    class="ico-after arrow-left"
+                    rel="prev"
+                >
+                    Gérer les exceptions (try/except)
+                </a>
+            </li>
+        
+        
+        
+            <li class="summary-button">
+                <a
+                    
+                        href="../../index.html"
+                    
+                >
+                    Sommaire
+                </a>
+            </li>        
+        
+        
+        
+            <li class="next">
+                <a
+                    
+                        href="../8-arguments-cmd/index.html"
+                    
+                    class="ico-after arrow-right"
+                    rel="next"
+                >
+                    Arguments de la ligne de commande
+                </a>
+            </li>
+        
+    </ul>
+
+
+
+    
+
+    
+
+
+
+
+
+            </section>
+        
+        
+    </article>
+    
+
+                    </main>
+
+                    
+    <aside class="sidebar summary mobile-menu-hide">
+        
+
+        
+
+        
+
+        
+    
+
+    
+
+
+
+
+
+
+<div class="mobile-menu-bloc accordeon" data-title="Sommaire du contenu">
+    <h3>Sommaire</h3>
+    
+
+    
+        
+             <h4 data-num="I"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../1-premiers-pas/index.html"
+                    
+                >
+                    Premiers pas avec Python
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../1-premiers-pas/1-presentation/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Présentation du langage
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../1-premiers-pas/2-installation/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Installation
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../1-premiers-pas/3-interpreteur/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Prise en main de l&#39;interpréteur
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../1-premiers-pas/4-fichiers/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Écrire du code dans des fichiers
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../1-premiers-pas/5-choix-interpreteur/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Fichiers ou interpréteur interactif ?
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="II"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../2-manipulations/index.html"
+                    
+                >
+                    Manipuler des données
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../2-manipulations/1-calculatrice/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur la calculatrice
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../2-manipulations/2-variables/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Des variables pour sauvegarder nos résultats
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../2-manipulations/3-texte/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Manipuler du texte
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../2-manipulations/4-interactions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Interactions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../2-manipulations/5-objets-methodes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Objets et méthodes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../2-manipulations/6-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Combat en tour par tour
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="III"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../3-structures-conditionnelles/index.html"
+                    
+                >
+                    Des programmes moins déterminés
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../3-structures-conditionnelles/1-conditions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les conditions (if/elif/else)
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../3-structures-conditionnelles/2-expressions-booleennes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Expressions booléennes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../3-structures-conditionnelles/3-tp-conditions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Ajoutons des conditions à notre jeu
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../3-structures-conditionnelles/4-listes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les listes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../3-structures-conditionnelles/5-iterations/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Itérer sur nos listes avec des boucles for
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../3-structures-conditionnelles/6-boucles/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Boucler sur une condition (while)
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="7"
+                                
+                                    href="../../3-structures-conditionnelles/7-algorithmes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Algorithmes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="8"
+                                
+                                    href="../../3-structures-conditionnelles/8-tp-boucles/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Ajoutons des boucles à notre jeu
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="IV"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../4-types/index.html"
+                    
+                >
+                    Types de données
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../4-types/1-types-precedents/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les types précédents
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../4-types/2-dictionnaires/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les dictionnaires
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../4-types/3-iteration-dictionnaire/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Itérer sur un dictionnaire
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../4-types/4-tuples/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les tuples
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../4-types/5-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="V"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../5-fonctions/index.html"
+                    
+                >
+                    Les fonctions
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../5-fonctions/1-fonctions-factoriser/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Des fonctions pour factoriser
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../5-fonctions/2-fonctions-parametrees/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Fonctions paramétrées
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../5-fonctions/3-retours/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retours de fonctions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../5-fonctions/4-parametres-mutables/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Paramètres et types mutables
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../5-fonctions/5-tests/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Fonctions de tests
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../5-fonctions/6-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Intégrons des fonctions à notre application
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="VI"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../index.html"
+                    
+                >
+                    Entrées / sorties
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../1-modules/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Découper son code en modules
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../2-lecture-fichier/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Lire un fichier en Python
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../3-iteration-fichier/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Itérer sur un fichier
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../4-ecriture-fichier/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Écrire dans un fichier
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../5-fstrings/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Chaînes de formatage
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../6-exceptions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Gérer les exceptions (try/except)
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="current
+                            "
+                        >
+                            <a data-num="7"
+                                
+                                    href="index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink unread"
+                            >
+                                Formater les données
+                            </a>
+                            
+                                <ol class="mobile-menu-bloc mobile-all-links" data-title="Sommaire du chapitre">
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#1-1-json"
+                                                
+                                            >
+                                                Format JSON
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#2-2-xml"
+                                                
+                                            >
+                                                Format XML
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#3-3-csv"
+                                                
+                                            >
+                                                Format CSV
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#4-4-bytes"
+                                                
+                                            >
+                                                Chaînes de bytes
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#5-5-pickle"
+                                                
+                                            >
+                                                Sérialisation binaire
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#6-6-autres"
+                                                
+                                            >
+                                                Autres formats
+                                            </a>
+                                        </li>
+                                    
+                                </ol>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="8"
+                                
+                                    href="../8-arguments-cmd/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Arguments de la ligne de commande
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="9"
+                                
+                                    href="../9-paquets/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les paquets
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="10"
+                                
+                                    href="../10-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Sauvegarder la partie
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="VII"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../7-perfectionnement/index.html"
+                    
+                >
+                    Aller plus loin
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../7-perfectionnement/1-autres-types/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les autres types de données
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../7-perfectionnement/2-conditions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les conditions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../7-perfectionnement/3-boucles/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les boucles
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../7-perfectionnement/4-fonctions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les fonctions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../7-perfectionnement/5-variables/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les variables
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../7-perfectionnement/6-exceptions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les exceptions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="7"
+                                
+                                    href="../../7-perfectionnement/7-debogage/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Débogage
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="VIII"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../8-bibliotheque-standard/index.html"
+                    
+                >
+                    La bibliothèque standard
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../8-bibliotheque-standard/1-apercu/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Tour d&#39;horizon de la bibliothèque standard
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../8-bibliotheque-standard/2-random/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Un peu d&#39;aléatoire
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../8-bibliotheque-standard/3-date-time/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Gestion du temps
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../8-bibliotheque-standard/5-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Monstre sauvage
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../8-bibliotheque-standard/9-modules-complementaires/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Installer des modules complémentaires
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="IX"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../10-annexes/index.html"
+                    
+                >
+                    Annexes
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../10-annexes/1-glossaire/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Glossaire et mots clés
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../10-annexes/2-modules-complementaires/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Quelques modules complémentaires bien utiles
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../10-annexes/3-tests/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Tests
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../10-annexes/4-outils/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Outils
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../10-annexes/8-resources/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Ressources
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+    
+</div>
+
+
+    
+
+<div class="mobile-menu-bloc mobile-all-links mobile-show-ico" data-title="Partager">
+    <h3>Partager</h3>
+    <ul>
+        <li>
+            <a href="https://twitter.com/share?url=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/&amp;text=Formater les données"
+               class="ico-after twitter blue"
+               rel="nofollow"
+            >
+                Twitter
+            </a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/sharer.php?u=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/&amp;t=Formater les données"
+               class="ico-after facebook blue"
+               rel="nofollow"
+            >
+                Facebook
+            </a>
+        </li>
+        <li>
+            <a href="index.html#share-to-mastodon"
+               class="open-modal ico-after mastodon blue"
+               rel="nofollow"
+            >
+                Mastodon
+            </a>
+            <form id="share-to-mastodon" class="modal modal-flex" target="_blank" method="GET">
+                <p>
+                    Entrez l'adresse de votre instance Mastodon (ex: https://mamot.fr).
+                </p>
+                <input type="text" class="input" name="instance" placeholder="https://" required>
+                <input type="hidden" class="input" name="text" value="Formater les données https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/">
+
+                <button type="submit"  class="btn btn-submit" disabled>Partager</button>
+            </form>
+        </li>
+        <li>
+            <a href="http://sharetodiaspora.github.io/?url=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/&amp;title=Formater les données"
+               class="ico-after diaspora blue"
+               rel="nofollow"
+            >
+                Diaspora*
+            </a>
+        </li>
+        <li>
+            <a href="mailto:?subject=Formater les données&amp;body=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/6-entrees-sorties/7-formatage/"
+               class="ico-after email blue"
+               rel="nofollow"
+            >
+                Envoyer par mail
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div class="mobile-menu-bloc mobile-all-links mobile-show-ico" data-title="Télécharger">
+                    
+                        
+<h3>Télécharger</h3>
+<ul>
+    
+        
+        
+        
+        
+            <li>
+                <a href="https://zestedesavoir.com/tutoriels/tex/2514/un-zeste-de-python.tex" class="ico-after download blue">
+                    LaTeX
+                    
+                        
+                            (803,2 Kio)
+                        
+                    
+                </a>
+            </li>
+        
+        
+            <li>
+                <a href="https://zestedesavoir.com/tutoriels/epub/2514/un-zeste-de-python.epub" class="ico-after download blue">
+                    EPUB
+                    
+                        
+                            (1,3 Mio)
+                        
+                    
+                </a>
+            </li>
+        
+        
+            <li>
+                <a href="https://zestedesavoir.com/tutoriels/zip/2514/un-zeste-de-python.zip" class="ico-after download blue">
+                    Archive
+                    
+                        
+                            (836,2 Kio)
+                        
+                    
+                </a>
+            </li>
+        
+    
+</ul>
+
+                    
+                </div>
+            
+        
+    </aside>
+
+                </div>
+            
+        </div>
+
+
+
+        
+
+<footer class="page-footer">
+    <div class="wrapper">
+        <p class="copyright">
+            Zeste de Savoir
+            <span class="version">
+                &bull; Version :
+                
+                    <a href="https://github.com/zestedesavoir/zds-site/tree/3fa911478046934ddb9dd40f003f58eee18b8e68">dev/3fa9114</a>
+                
+            </span>
+        </p>
+
+        <ul class="social">
+            
+                <li>
+                    <a href="https://framapiaf.org/@ZesteDeSavoir"
+                       title="Suivez-nous sur Mastodon"
+                       class="btn ico-after mastodon light btn-mastodon btn-holder"></a>
+                </li>
+            
+
+            
+                <li>
+                    <a href="https://www.facebook.com/ZesteDeSavoir"
+                       title="Aimez notre page Facebook"
+                       class="btn ico-after facebook light btn-facebook btn-holder"></a>
+                </li>
+            
+
+            
+                <li>
+                    <a href="https://twitter.com/ZesteDeSavoir"
+                       title="Suivez-nous sur Twitter"
+                       class="btn ico-after twitter light btn-twitter btn-holder"></a>
+                </li>
+            
+
+            
+
+            
+        </ul>
+
+        <ul class="links">
+            <li><a href="https://zestedesavoir.com/api/">API</a></li>
+            <li><a href="https://zestedesavoir.com/pages/cgu/">CGU</a></li>
+            <li><a href="https://zestedesavoir.com/pages/apropos/">À propos</a></li>
+            
+                <li><a href="https://zestedesavoir.com/pages/association/">L’association</a></li>
+                <li>
+                    <a href="https://www.helloasso.com/associations/zeste-de-savoir/adhesions/cotisations-2021-2022">
+                        <span class="wide">Adhérer à l'association</span>
+                        <span class="until-wide" aria-hidden="true">Adhérer</span>
+                    </a>
+                </li>
+            
+            <li><a href="https://zestedesavoir.com/pages/contact/">Contact</a></li>
+            <li><a href="https://zestedesavoir.com/pages/cookies/">Les cookies</a></li>
+        </ul>
+    </div>
+</footer>
+
+    </div>
+
+
+
+
+
+
+    
+    <script src="../../../../../static/js/jquery.min.8fb8fee4fcc3.js"></script>
+    
+    
+    <script src="../../../../../static/js/script.9ee5a11734c8.js"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$']],
+            displayMath: [['$$','$$']],
+            processEscapes: true,
+            processClass: "mathjax-wrapper|mathjax-span",
+            ignoreClass: "page-container"
+        },
+        TeX: { extensions: ["color.js", "cancel.js", "enclose.js", "bbox.js", "mathchoice.js", "newcommand.js", "verb.js", "unicode.js", "autobold.js", "mhchem.js"] },
+        messageStyle: "none",
+    });
+</script>
+<script type="application/javascript">
+    // When the page has been loaded (which means the DOM and Mathjax has been loaded)
+    window.addEventListener("load", function() {
+
+        // We look for <span> inside contents
+        $(".message-content span, .article-content span").each(function () {
+            // We only want those with no CSS class
+            if($(this).attr("class") === undefined) {
+                var text = $(this).text();
+                // We check that they start with $ and end with $
+                if (text && text[0] == "$" && text[text.length - 1] == "$") {
+                    // We add a class to mark them
+                    $(this).addClass("mathjax-span");
+                }
+            }
+        });
+
+        // If there is content waiting for Mathjax
+        if($(".mathjax-span, .mathjax-wrapper").length) {
+            // We run Mathjax
+            MathJax.Hub.Configured();
+        }
+
+    });
+</script>
+
+</body>
+</html>

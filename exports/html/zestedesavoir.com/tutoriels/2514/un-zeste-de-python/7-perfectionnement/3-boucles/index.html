@@ -1,0 +1,3266 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html class="enable-mobile-menu" lang="fr" antidoteapi_jsconnect="true">
+<head>
+    <meta charset="utf-8">
+
+    
+
+    <title>
+        Retour sur les boucles - Un zeste de Python &bull; Tutoriels &bull; Zeste de Savoir
+    </title>
+
+    <meta name="language" content="fr">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0">
+
+    
+    <meta name="theme-color" content="#084561">
+    <meta name="msapplication-navbutton-color" content="#084561">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    
+    
+    <meta name="description" content="Débuter avec Python">
+
+
+    
+
+
+    
+    <meta property="og:site_name" content="Zeste de Savoir">
+    <meta property="og:title" content="Retour sur les boucles - Un zeste de Python &bull; Tutoriels &bull; Zeste de Savoir">
+    <meta property="og:url" content="https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/">
+    <meta property="og:language" content="fr_FR">
+    <meta property="og:image:url" content="http://zestedesavoir.com/media/galleries/5033/d1decad0-f454-471a-9cec-41b69a66cc9e.png.144x144_q95_crop.png">
+    <meta property="og:image:secure_url" content="https://zestedesavoir.com/media/galleries/5033/d1decad0-f454-471a-9cec-41b69a66cc9e.png.144x144_q95_crop.png">
+    
+    <meta property="og:type" content="article">
+
+
+
+
+<meta property="og:article:section" content="Tutoriels">
+
+    <meta property="og:article:tag" content="Programmation et algorithmique">
+
+
+
+
+    
+    <meta property="twitter:domain" content="https://zestedesavoir.com/">
+    
+        <meta property="twitter:card" content="summary">
+    
+    <meta property="twitter:url" content="https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/">
+    <meta property="twitter:title" content="Retour sur les boucles - Un zeste de Python &bull; Tutoriels &bull; Zeste de Savoir">
+    <meta property="twitter:description" content="Débuter avec Python">
+    <meta property="twitter:site" content="@ZesteDeSavoir">
+    <meta property="twitter:creator" content="@ZesteDeSavoir">
+    <meta property="twitter:image" content="http://zestedesavoir.com/media/galleries/5033/d1decad0-f454-471a-9cec-41b69a66cc9e.png.144x144_q95_crop.png">
+
+
+    
+    
+
+
+    
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../../static/css/easymde.min.988f62e1a8b3.css">
+    <link rel="stylesheet" href="../../../../../static/css/katex.min.50a5301fd703.css">
+    <link rel="stylesheet" href="../../../../../static/css/main.b311e0e232bb.css">
+
+    
+    
+
+
+    
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Source+Code+Pro:400,700|Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+
+    
+    
+
+    
+    
+        
+    
+
+    
+        
+            <link rel="icon" sizes="16x16" type="image/png" href="../../../../../static/images/favicons/16.3cb06f49a319.png">
+        
+            <link rel="icon" sizes="32x32" type="image/png" href="../../../../../static/images/favicons/32.8864f5e754ff.png">
+        
+            <link rel="icon" sizes="64x64" type="image/png" href="../../../../../static/images/favicons/64.b399daf7e2f5.png">
+        
+            <link rel="icon" sizes="96x96" type="image/png" href="../../../../../static/images/favicons/96.9ed1415603d4.png">
+        
+            <link rel="icon" sizes="128x128" type="image/png" href="../../../../../static/images/favicons/128.07157f777049.png">
+        
+            <link rel="icon" sizes="256x256" type="image/png" href="../../../../../static/images/favicons/256.b4304d164aa4.png">
+        
+    
+
+    
+    
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/114.772f39c33b1a.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/120.8cf680a96e7d.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/144.a9e39f886050.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/152.a2003b17a9b2.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/167.540217e160af.png">
+        
+            <link rel="apple-touch-icon" type="image/png" href="https://zestedesavoir.com/static/images/favicons/180.e167ecab6abe.png">
+        
+    
+
+    
+    
+    <link rel="alternate" type="application/rss+xml" title="Forum" href="https://zestedesavoir.com/forums/flux/messages/rss/">
+    <link rel="alternate" type="application/rss+xml" title="Nouveaux tutoriels (RSS)" href="https://zestedesavoir.com/tutoriels/flux/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Nouveaux tutoriels (ATOM)" href="https://zestedesavoir.com/tutoriels/flux/atom/">
+    <link rel="alternate" type="application/rss+xml" title="Nouveaux articles (RSS)" href="https://zestedesavoir.com/articles/flux/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Nouveaux articles (ATOM)" href="https://zestedesavoir.com/articles/flux/atom/">
+    <link rel="alternate" type="application/rss+xml" title="Nouveaux billets (RSS)" href="https://zestedesavoir.com/billets/flux/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Nouveaux billets (ATOM)" href="https://zestedesavoir.com/billets/flux/atom/">
+    
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="Zeste de Savoir" href="https://zestedesavoir.com/rechercher/opensearch.xml">
+
+    
+    
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?locale=fr&config=TeX-AMS_HTML&delayStartupUntil=configured"
+        integrity="sha384-Ra6zh6uYMmH5ydwCqqMoykyf1T/+ZcnOQfFPhDrp2kI4OIxadnhsvvA2vv9A7xYv"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+</head>
+
+
+    
+
+
+<body class=""
+       
+    itemscope
+    itemtype="http://schema.org/WebPage"
+    
+        data-show-markdown-help="true"
+    
+>
+
+    
+<div id="old-browser-warning-container"></div>
+
+
+
+
+<script>
+
+(function () {
+    var container = document.getElementById("old-browser-warning-container");
+
+    if (window.ActiveXObject || 'ActiveXObject' in window) {
+        var more = document.createElement('A');
+        more.innerText = 'En savoir plus';
+        more.setAttribute('href', 'https://browsehappy.com/?locale=fr');
+
+        var div = document.createElement('DIV');
+        div.className = 'old-browser-warning';
+        div.innerText = 'Le bon fonctionnement du site avec Internet Explorer n’est pas garanti  •  ';
+        div.appendChild(more);
+        container.appendChild(div);
+
+        document.body.classList.add('old-browser-warning-shown');
+    }
+})();
+
+</script>
+
+
+    
+    
+
+
+    
+        <style>
+            :root {
+                --very-top-banner-background-color: #800;
+                --very-top-banner-color: white;
+                --very-top-banner-border-color: #450000;
+            }
+        </style>
+
+        <div id="very-top-banner" data-slug="version-beta">
+            <span>Version bêta</span>
+            <button aria-label="Fermer" title="Appuyer sur la touche majuscule ou la touche contrôle en cliquant pour que la fermeture persiste sur tout le navigateur.">×</button>
+        </div>
+    
+
+
+
+    <div class="mobile-menu" id="mobile-menu"></div>
+
+    <div class="page-container">
+
+        <ul id="accessibility">
+            <li>
+                <a href="index.html#menu">Aller au menu</a>
+            </li>
+            <li>
+                <a href="index.html#content" accesskey="s">Aller au contenu</a>
+            </li>
+            <li>
+                <a href="index.html#search-top" accesskey="4">Aller à la recherche</a>
+            </li>
+        </ul>
+
+        <div class="header-container">
+            
+
+
+
+
+
+
+
+
+
+<header>
+    <div class="mobile-menu-btn ico-after"></div>
+
+    
+    <div class="header-logo">
+        <a href="https://zestedesavoir.com/"
+           class="header-logo-link">
+            Zeste de Savoir
+        </a>
+    </div>
+
+    <div class="header-mobile-page-title">
+        
+            Zeste de Savoir
+        
+    </div>
+
+    
+    <nav
+        class="header-menu"
+        id="menu"
+        data-title="Menu"
+        
+    >
+
+        <ul class="header-menu-list">
+            <li>
+                <a href="https://zestedesavoir.com/bibliotheque/" class="mobile-menu-link has-dropdown ">
+                    Bibliothèque
+                    <span class="arrow"></span>
+                </a>
+
+                
+                    <div class="header-dropdown header-menu-dropdown">
+                        <a href="https://zestedesavoir.com/bibliotheque/" class="dropdown-link-all">
+                            Accéder à tous les contenus de la bibliothèque
+                        </a>
+
+                        <ul class="dropdown-list">
+                            
+                            
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/informatique/">
+                                                    Informatique
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/autres-informatique/">
+                                                        Autres (informatique)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/bureautique-et-redaction/">
+                                                        Bureautique et rédaction
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/site-web/">
+                                                        Développement Web
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/materiel-et-electronique/">
+                                                        Matériel et électronique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/programmation-et-algorithmique/">
+                                                        Programmation et algorithmique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/informatique/systemes-dexploitation/">
+                                                        Systèmes d&#39;exploitation
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/">
+                                                    Sciences de la nature
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/astronomie/">
+                                                        Astronomie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/autres-sciences-de-la-nature/">
+                                                        Autres (sciences de la nature)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/biologie/">
+                                                        Biologie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/chimie/">
+                                                        Chimie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/mathematiques/">
+                                                        Mathématiques
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/physique/">
+                                                        Physique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-de-la-nature/geologie-et-geographie-physique/">
+                                                        Sciences de la terre
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/">
+                                                    Sciences humaines et sociales
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/autres-sciences-humaines-et-sociales/">
+                                                        Autres (sciences humaines et sociales)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/droit/">
+                                                        Droit
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/economie/">
+                                                        Économie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/histoire/">
+                                                        Histoire
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/langues/">
+                                                        Langues
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/sciences-humaines-et-sociales/psychologie/">
+                                                        Psychologie
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/bibliotheque/autres/">
+                                                    Autres
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/arts-graphisme-et-multimedia/">
+                                                        Arts, graphisme et multimédia
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/autres/">
+                                                        Autres
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/communication-et-management/">
+                                                        Communication et management
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/bibliotheque/autres/zeste-de-savoir/">
+                                                        Zeste de Savoir
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Tags les plus utilisés
+                                            </li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=zds">zds</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=math%C3%A9matiques">mathématiques</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=algorithmique">algorithmique</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=python">python</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/bibliotheque/?tag=physique">physique</a></li>
+                                            
+                                            <li><a href="https://zestedesavoir.com/contenus/tags/">Tous les tags</a></li>
+                                        </ul>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </li>
+            <li>
+                <a href="https://zestedesavoir.com/billets/" class="mobile-menu-link has-dropdown ">
+                    Tribune
+                    <span class="arrow"></span>
+                </a>
+                
+                    <div class="header-dropdown header-menu-dropdown">
+                        <a href="https://zestedesavoir.com/billets/" class="dropdown-link-all">
+                            Tous les billets
+                        </a>
+
+                        <ul class="dropdown-list">
+                            
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Informatique
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres-informatique">
+                                                        Autres (informatique)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=bureautique-et-redaction">
+                                                        Bureautique et rédaction
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=site-web">
+                                                        Développement Web
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=materiel-et-electronique">
+                                                        Matériel et électronique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=programmation-et-algorithmique">
+                                                        Programmation et algorithmique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=systemes-dexploitation">
+                                                        Systèmes d&#39;exploitation
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Sciences de la nature
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=astronomie">
+                                                        Astronomie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres-sciences-de-la-nature">
+                                                        Autres (sciences de la nature)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=biologie">
+                                                        Biologie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=chimie">
+                                                        Chimie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=mathematiques">
+                                                        Mathématiques
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=physique">
+                                                        Physique
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=geologie-et-geographie-physique">
+                                                        Sciences de la terre
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Sciences humaines et sociales
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres-sciences-humaines-et-sociales">
+                                                        Autres (sciences humaines et sociales)
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=droit">
+                                                        Droit
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=economie">
+                                                        Économie
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=histoire">
+                                                        Histoire
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=langues">
+                                                        Langues
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=psychologie">
+                                                        Psychologie
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Autres
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=arts-graphisme-et-multimedia">
+                                                        Arts, graphisme et multimédia
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=autres">
+                                                        Autres
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=communication-et-management">
+                                                        Communication et management
+                                                    </a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/billets/?category=zeste-de-savoir">
+                                                        Zeste de Savoir
+                                                    </a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Tags les plus utilisés
+                                            </li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=python">python</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=zds">zds</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=c%2B%2B">c++</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=musique">musique</a></li>
+                                            
+                                                <li><a href="https://zestedesavoir.com/billets/?tag=javascript">javascript</a></li>
+                                            
+                                            <li><a href="https://zestedesavoir.com/contenus/tags/?type=opinion">Tous les tags</a></li>
+                                        </ul>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </li>
+            <li>
+                <a href="https://zestedesavoir.com/forums/" class="mobile-menu-link has-dropdown ">
+                    Forum
+                    <span class="arrow"></span>
+                </a>
+                
+                    <div class="header-dropdown header-menu-dropdown">
+                        <a href="https://zestedesavoir.com/forums/" class="dropdown-link-all">
+                            Tous les forums
+                        </a>
+
+                        <ul class="dropdown-list">
+                            
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/forums/savoirs/">
+                                                    Savoirs
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/programmation/">Programmation</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/site-web/">Développement Web</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/multimedia-et-jeux-video/">Multimédia et Jeux vidéo</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/systemes-et-materiels/">Systèmes et Matériels</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/sciences/">Sciences</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/savoirs/autres-savoirs/">Les autres savoirs</a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                <a href="https://zestedesavoir.com/forums/communaute/">
+                                                    Communauté
+                                                </a>
+                                            </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/bar-smoothies/">Le bar à smoothies</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/bug-suggestions/">Bugs et Suggestions</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/dev-zone/">Dev Zone</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/beta-zone/">Contenus en cours de rédaction</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/projets/">Vos projets</a>
+                                                </li>
+                                            
+                                                <li class="dropdown-list-element">
+                                                    <a href="https://zestedesavoir.com/forums/communaute/association/">L&#39;association</a>
+                                                </li>
+                                            
+                                        </ul>
+                                    </li>
+                                
+                                
+                                    <li>
+                                        <ul>
+                                            <li class="dropdown-title">
+                                                Tags les plus utilisés
+                                            </li>
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/python/">python</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/c/">c++</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/php/">php</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/arduino/">arduino</a>
+                                                    </li>
+                                                
+                                            
+                                                
+                                                    <li class="dropdown-list-element">
+                                                        <a href="https://zestedesavoir.com/forums/sujets/tag/java/">java</a>
+                                                    </li>
+                                                
+                                            
+                                        </ul>
+                                    </li>
+                                
+                            
+                        </ul>
+                    </div>
+                
+            </li>
+        </ul>
+    </nav>
+
+
+    
+    <div class="logbox header-right unlogged">
+         
+            <a href="https://zestedesavoir.com/membres/connexion/?next=/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/">Connexion</a>
+            <a href="https://zestedesavoir.com/membres/inscription/">Inscription</a>
+        
+    </div>
+</header>
+
+
+            <div class="clearfix sub-header">
+                <div class="breadcrumb" itemprop="breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="https://zestedesavoir.com/" rel="home" itemprop="url">
+                                <span itemprop="title">Accueil</span>
+                            </a>
+                        </li>
+                        
+    <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a
+            
+                href="https://zestedesavoir.com/bibliotheque/?type=tutorial"
+            
+            itemprop="url">
+            <span itemprop="title">Tutoriels</span>
+        </a>
+    </li>
+
+                        
+    
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span itemprop="title"><a href="../../index.html">Un zeste de Python</a></span>
+        </li>
+    
+
+    
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span itemprop="title"><a href="../index.html">Aller plus loin</a></span>
+        </li>
+    
+
+    <li>Retour sur les boucles</li>
+
+                    </ol>
+                </div>
+                <div class="search header-right" id="search">
+                    <form action="https://zestedesavoir.com/rechercher/">
+                        <input id="search-top" type="text" name="q" placeholder="Rechercher" title="Contenu de la recherche">
+                        <button type="submit" class="ico-after search-submit" title="Lancer la recherche">OK</button>
+                    </form>
+                    <a href="https://zestedesavoir.com/rechercher/" title="Recherche avancée" class="search-more"></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="main-container">
+            
+                <div class="main wrapper clearfix">
+                    <main class="content-container" role="main" id="content">
+                        
+                            
+
+
+
+                        
+
+                        
+    <article class="content-wrapper" 
+    itemscope itemtype="http://schema.org/Article"
+>
+        <header>
+            
+    
+        <p class="license">
+            Licence CC BY-SA
+        </p>
+    
+
+    <h1>
+        Retour sur les boucles
+    </h1>
+
+    
+
+
+
+
+
+
+
+<aside class="meta">
+    <div class="meta-column">
+        <div class="members">
+            <span class="authors-label">
+                Auteur :
+            </span>
+            <ul>
+                
+                    <li>
+                        
+
+
+
+
+    <a href="https://zestedesavoir.com/@entwanne"
+           class="member-item"
+           itemscope
+           itemtype="http://schema.org/Person"
+           ><img src="https://secure.gravatar.com/avatar/0dcfd806f48fe3492f81c0692572961d?d=identicon" alt="" class="avatar" itemprop="image" aria-hidden="true" /><span itemprop="name">entwanne</span></a>
+
+
+                    </li>
+                
+
+                
+            </ul>
+        </div>
+
+        
+            
+        
+
+        <p>
+            Catégorie :
+
+            
+                
+                
+                    <a href="https://zestedesavoir.com/bibliotheque/?subcategory=programmation-et-algorithmique">Programmation et algorithmique</a>
+                
+            
+        </p>
+
+        <p>
+            
+        </p>
+
+        
+            
+        
+
+        
+            <p class="pubdate">
+            
+                Publié
+                <time datetime="2021-11-20T09:30:09" pubdate="pubdate" itemprop="dateModified">
+                    il y a 14 minutes
+                </time>
+            
+            </p>
+        
+    </div>
+
+    <div class="meta-column">
+        
+
+        
+            <ul class="taglist" itemprop="keywords">
+                
+                    <li><a href="https://zestedesavoir.com/bibliotheque/?tag=python" rel="tag">python</a></li>
+                
+            </ul>
+        
+
+        
+<button class="btn btn-grey ico-after view open-zen-mode" data-content-on-click="Quitter la lecture zen">Lecture zen</button>
+    </div>
+</aside>
+
+
+    
+
+        </header>
+        
+            <section class="article-content" >
+                
+    
+        
+
+
+
+    <ul class="pagination pagination-top pagination-chapter">
+        
+            <li class="prev">
+                <a
+                    
+                        href="../2-conditions/index.html"
+                    
+                    class="ico-after arrow-left"
+                    rel="prev"
+                >
+                    Retour sur les conditions
+                </a>
+            </li>
+        
+        
+        
+            <li class="summary-button">
+                <a
+                    
+                        href="../../index.html"
+                    
+                >
+                    Sommaire
+                </a>
+            </li>        
+        
+        
+        
+            <li class="next">
+                <a
+                    
+                        href="../4-fonctions/index.html"
+                    
+                    class="ico-after arrow-right"
+                    rel="next"
+                >
+                    Retour sur les fonctions
+                </a>
+            </li>
+        
+    </ul>
+
+
+
+    
+    
+        
+
+
+
+
+
+    <ul>
+        
+            <li>
+                <a href="index.html#1-1-infini">
+                    Cas des boucles infinies
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#2-2-break-continue-else">
+                    Contrôle du flux
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#3-3-outils">
+                    Outils
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#4-4-comprehensions">
+                    Listes en intension
+                </a>
+            </li>
+        
+            <li>
+                <a href="index.html#5-5-iterateurs">
+                    Itérateurs
+                </a>
+            </li>
+        
+    </ul>
+
+
+
+    <h2 id="1-1-infini">
+        <a href="index.html#1-1-infini">
+            Cas des boucles infinies
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Nous avons vu les boucles <code>for</code> pour itérer sur des données, puis les boucles <code>while</code> pour boucler sur une condition.
+Et nous avons vu que, volontairement ou non, nous pouvions tomber dans des cas de boucles infinies.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Vers l'infini et au-delà !"</span>)
+</code></pre></div>
+<div class="custom-block custom-block-information"><div class="custom-block-body"><p>Pour rappel, utilisez la combinaison de touches <kbd>Ctrl+C</kbd> pour couper le programme.</p></div></div>
+<p>Volontairement, ça peut être pour laisser tourner un programme en tâche de fond — un serveur par exemple — qui s’exécuterait continuellement pour traiter des requêtes.
+Et dans ce cas des dispositifs seront mis en place pour terminer proprement le programme quand on le souhaite.</p>
+<p>Mais il y a d’autres cas d’usages légitimes de boucles a priori infinies, car il existe d’autres moyens de terminer une boucle en cours d’exécution.</p>
+<p>En effet, la condition d’un <code>while</code> est parfois difficile à exprimer, d’autant plus si elle repose sur des événements tels que des <code>input</code>.
+Dans ce cas, un idiome courant est d’écrire une boucle infinie et d’utiliser un autre moyen de sortir de la boucle : le mot-clé <code>break</code>.<br>
+Ce mot-clé, quand il est rencontré, a pour effet de stopper immédiatement la boucle en cours, sans repasser par la condition.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    value = <span class="hljs-built_in">input</span>(<span class="hljs-string">'Entrez un nombre: '</span>)
+    <span class="hljs-keyword">if</span> value.isdigit():
+        value = <span class="hljs-built_in">int</span>(value)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'Nombre invalide'</span>)
+</code></pre></div>
+<p>Avec cette boucle, nous attendons que l’entrée ne soit composée que de chiffres, auquel cas on rentre dans le <code>if</code> et l’on atteint le <code>break</code>.
+Sinon, on continue de boucler en redemandant à l’utilisateur de saisir un nouveau nombre.</p>
+<p>La boucle, infinie en apparence (<code>while True</code>), possède en fait une condition de fin exprimée par un <code>if</code>.</p>
+        </div>
+    
+
+    <h2 id="2-2-break-continue-else">
+        <a href="index.html#2-2-break-continue-else">
+            Contrôle du flux
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p><code>break</code> permet donc de stopper la boucle.
+Il n’est pas seulement disponible pour les boucles <code>while</code>, on peut aussi l’utiliser dans un <code>for</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i)</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">if</span> i == <span class="hljs-number">5</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-keyword">break</span></span>
+<span class="hljs-meta">...</span> 
+0
+1
+2
+3
+4
+5
+</code></pre></div>
+<p>Comme précédemment, la sortie de boucle est immédiate, l’effet ne serait donc pas le même si le <code>print</code> était placé après le bloc <code>if</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">if</span> i == <span class="hljs-number">5</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-keyword">break</span></span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i)</span>
+<span class="hljs-meta">...</span> 
+0
+1
+2
+3
+4
+</code></pre></div>
+<p>Il faut savoir que dans le cas de boucles imbriquées, <code>break</code> ne se rapporte qu’à la boucle juste au-dessus.
+Il n’est pas possible d’influer sur les boucles extérieures.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-keyword">if</span> y == <span class="hljs-number">2</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">            <span class="hljs-keyword">break</span></span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-built_in">print</span>(x, y)</span>
+<span class="hljs-meta">...</span> 
+0 0
+0 1
+1 0
+1 1
+2 0
+2 1
+</code></pre></div>
+<p>Mais <code>break</code> n’est pas le seul mot-clé de contrôle du flux d’une boucle et je vais maintenant vous parler de <code>continue</code>.</p>
+<p><code>continue</code> permet aussi de terminer immédiatement l’itération en cours, mais pour passer à la suivante.
+Quand un <code>continue</code> est rencontré, on est directement conduit à la ligne d’introduction de la boucle et sa condition est réévaluée.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    value = <span class="hljs-built_in">input</span>(<span class="hljs-string">'Entrez un nombre: '</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> value:
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> value.isdigit():
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'Nombre invalide'</span>)
+        <span class="hljs-keyword">continue</span>
+    value = <span class="hljs-built_in">int</span>(value)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f'<span class="hljs-subst">{value}</span> * 2 = <span class="hljs-subst">{value * <span class="hljs-number">2</span>}</span>'</span>)
+</code></pre></div>
+<p>C’est un mot-clé très utile quand on traite une liste de données et que l’une des valeurs est invalide, on peut alors simplement l’ignorer et passer à la suivante.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span></div><pre><code class="hljs language-python">values = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+
+total = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> values:
+    <span class="hljs-keyword">if</span> value &#x3C; <span class="hljs-number">0</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'Invalid value'</span>, value)
+        <span class="hljs-keyword">continue</span>
+    total += value
+</code></pre></div>
+<p>On a aussi le mot-clé <code>else</code> qui est assez facile à comprendre sur une boucle <code>while</code> : il intervient après la boucle si la condition a été évaluée comme fausse.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span></div><pre><code class="hljs language-python">pv = <span class="hljs-number">50</span>
+
+<span class="hljs-keyword">while</span> pv > <span class="hljs-number">0</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Pythachu a <span class="hljs-subst">{pv}</span> PV'</span>)
+    pv -= <span class="hljs-number">20</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Pythachu perd 20 PV'</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Pythachu est KO'</span>)
+</code></pre></div>
+<p>Le <code>else</code> intervient donc dans tous les cas… sauf si on a quitté la boucle sans réévaluer la condition (qui ne peut donc pas être fausse), c’est-à-dire en utilisant un <code>break</code>.<br>
+Ainsi, <code>else</code> permet de savoir comment s’est terminée une boucle, si on en est sorti normalement (auquel cas on passe dans le bloc) ou si on l’a interrompue (le bloc n’est pas exécuté).</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span></div><pre><code class="hljs language-python">pv = <span class="hljs-number">50</span>
+
+<span class="hljs-keyword">while</span> pv > <span class="hljs-number">0</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Pythachu a <span class="hljs-subst">{pv}</span> PV'</span>)
+    degats = <span class="hljs-built_in">input</span>(<span class="hljs-string">'Nombre de degats : '</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> degats.isdigit():
+        <span class="hljs-keyword">break</span>
+    degats = <span class="hljs-built_in">int</span>(degats)
+    pv -= degats
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f'Pythachu perd <span class="hljs-subst">{degats}</span> PV'</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Pythachu est KO'</span>)
+</code></pre></div>
+<p><code>else</code> est aussi applicable à la boucle <code>for</code> en ayant le même effet, il permet de savoir si la boucle est arrivée jusqu’au bout sans être interrompue.</p>
+<p>Ainsi, sans <code>break</code> le <code>else</code> est bien exécuté.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i)</span>
+<span class="hljs-meta">...</span> <span class="python"><span class="hljs-keyword">else</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(<span class="hljs-string">'end'</span>)</span>
+<span class="hljs-meta">...</span> 
+0
+1
+2
+3
+4
+end
+</code></pre></div>
+<p>Avec un <code>break</code> il ne l’est pas.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i)</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">if</span> i == <span class="hljs-number">3</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-keyword">break</span></span>
+<span class="hljs-meta">...</span> <span class="python"><span class="hljs-keyword">else</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(<span class="hljs-string">'end'</span>)</span>
+<span class="hljs-meta">...</span> 
+0
+1
+2
+3
+
+</code></pre></div>
+<div class="custom-block custom-block-information"><div class="custom-block-body"><p>Le mot-clé <code>else</code> est souvent mal compris — on pourrait croire qu’on entre dans le <code>else</code> uniquement s’il n’y a pas eu d’itérations — et donc peu recommandé pour lever toute ambiguïté.</p></div></div>
+        </div>
+    
+
+    <h2 id="3-3-outils">
+        <a href="index.html#3-3-outils">
+            Outils
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>Le monde de l’itération est très vaste en Python, les itérables se retrouvent au cœur de nombreux mécanismes.
+C’est pourquoi Python propose de base de nombreux outils relatifs à l’itération tels que les fonctions <code>all</code> et <code>any</code> que l’on a déjà vues.</p>
+<p>Vous êtes-vous déjà demandé comment itérer simultanément sur plusieurs listes ou comment répéter une liste ? Ce chapitre est fait pour vous !</p>
+<h5 id="fonctions-natives-builtins">Fonctions natives (<em>builtins</em>)<a aria-hidden="true" tabindex="-1" href="index.html#fonctions-natives-builtins"><span class="icon icon-link"></span></a></h5>
+<p>On a déjà vu un certain nombre de <em>builtins</em> dans les chapitres précédents, mais il en reste quelques unes très intéressantes que j’ai omises jusqu’ici.</p>
+<h6 id="enumerate"><code>enumerate</code><a aria-hidden="true" tabindex="-1" href="index.html#enumerate"><span class="icon icon-link"></span></a></h6>
+<p>Notamment la fonction <code>enumerate</code>, qui prend une liste (ou n’importe quel itérable) et permet d’itérer sur ses valeurs tout en leur associant leur index.
+C’est-à-dire que pour chaque valeur on connaîtra la position qu’elle occupe dans la liste.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = [<span class="hljs-string">'abc'</span>, <span class="hljs-string">'def'</span>, <span class="hljs-string">'ghi'</span>]</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(values):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i, <span class="hljs-string">':'</span>, value)</span>
+<span class="hljs-meta">...</span> 
+0 : abc
+1 : def
+2 : ghi
+</code></pre></div>
+<p>Cela remplace aisément les constructions à base de <code>range(len(values))</code> que l’on voit trop souvent et qui sont à éviter.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(values)):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i, <span class="hljs-string">':'</span>, values[i])</span>
+<span class="hljs-meta">...</span> 
+0 : abc
+1 : def
+2 : ghi
+</code></pre></div>
+<p>On les évite justement parce qu'<code>enumerate</code> répond mieux au problème tout en étant plus polyvalent (on peut par exemple itérer sur un fichier), et qu’on a directement accès à la valeur (<code>value</code>) sans besoin d’une indirection supplémentaire par le conteneur (<code>values[i]</code>).</p>
+<p>On notera au passage que la fonction <code>enumerate</code> accepte un deuxième argument pour préciser l’index de départ, qui est par défaut de zéro.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span><span data-count="13"></span><span data-count="14"></span><span data-count="15"></span><span data-count="16"></span><span data-count="17"></span><span data-count="18"></span><span data-count="19"></span><span data-count="20"></span><span data-count="21"></span><span data-count="22"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'corbeau.txt'</span>) <span class="hljs-keyword">as</span> f:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">for</span> i, line <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(f, <span class="hljs-number">1</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-built_in">print</span>(i, <span class="hljs-string">':'</span>, line.rstrip())</span>
+<span class="hljs-meta">...</span> 
+1 : Maître Corbeau, sur un arbre perché,
+2 : Tenait en son bec un fromage.
+3 : Maître Renard, par l'odeur alléché,
+4 : Lui tint à peu près ce langage :
+5 : Et bonjour, Monsieur du Corbeau.
+6 : Que vous êtes joli ! que vous me semblez beau !
+7 : Sans mentir, si votre ramage
+8 : Se rapporte à votre plumage,
+9 : Vous êtes le Phénix des hôtes de ces bois.
+10 : À ces mots, le Corbeau ne se sent pas de joie ;
+11 : Et pour montrer sa belle voix,
+12 : Il ouvre un large bec, laisse tomber sa proie.
+13 : Le Renard s'en saisit, et dit : Mon bon Monsieur,
+14 : Apprenez que tout flatteur
+15 : Vit aux dépens de celui qui l'écoute.
+16 : Cette leçon vaut bien un fromage, sans doute.
+17 : Le Corbeau honteux et confus
+18 : Jura, mais un peu tard, qu'on ne l'y prendrait plus.
+</code></pre></div>
+<h5 id="reversed"><code>reversed</code><a aria-hidden="true" tabindex="-1" href="index.html#reversed"><span class="icon icon-link"></span></a></h5>
+<p><code>reversed</code> est une fonction très simple, elle permet d’inverser une séquence d’éléments, pour les parcourir dans l’ordre inverse.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = [<span class="hljs-string">'abc'</span>, <span class="hljs-string">'def'</span>, <span class="hljs-string">'ghi'</span>]</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> <span class="hljs-built_in">reversed</span>(values):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(value)</span>
+<span class="hljs-meta">...</span> 
+ghi
+def
+abc
+</code></pre></div>
+<p>La fonction ne modifie pas la séquence initiale (contrairement à la méthode <code>reverse</code> des listes).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values</span>
+['abc', 'def', 'ghi']
+</code></pre></div>
+<h5 id="sorted"><code>sorted</code><a aria-hidden="true" tabindex="-1" href="index.html#sorted"><span class="icon icon-link"></span></a></h5>
+<p>Dans la même veine on a la fonction <code>sorted</code>, semblable à la méthode <code>sort</code> des listes mais renvoyant ici une copie.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = [<span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>]</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">sorted</span>(values)</span>
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+<span class="hljs-meta">>>></span> <span class="python">values</span>
+[5, 3, 2, 4, 6, 1, 9, 7, 8]
+</code></pre></div>
+<p>On notera que le tri se fait en ordre croissant (les plus petits éléments d’abord) par défaut, mais la fonction accepte un argument <code>reverse</code> pour trier en ordre décroissant (les plus grands d’abord).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">sorted</span>(values, reverse=<span class="hljs-literal">True</span>)</span>
+[9, 8, 7, 6, 5, 4, 3, 2, 1]
+</code></pre></div>
+<p>Mieux encore, la fonction propose un paramètre <code>key</code> pour personnaliser la manière dont seront triés nos éléments.
+C’est une fonction qui recevra un élément en paramètre et renverra une valeur (par exemple un nombre), le tri se fera alors suivant l’ordre entre ces valeurs renvoyées.</p>
+<div class="custom-block custom-block-information"><div class="custom-block-body"><p>Les fonctions en Python sont des valeurs comme les autres que l’on peut donc parfaitement passer en argument.
+Ces arguments-fonctions sont généralement appelés des <em>callbacks</em> (ou « fonctions de rappel »).</p></div></div>
+<p>Par exemple, le tri par défaut pour les chaînes de caractères est l’ordre lexicographique (plus ou moins équivalent à l’ordre alphabétique).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">words = [<span class="hljs-string">'zèbre'</span>, <span class="hljs-string">'autruche'</span>, <span class="hljs-string">'cheval'</span>, <span class="hljs-string">'oie'</span>]</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">sorted</span>(words)</span>
+['autruche', 'cheval', 'oie', 'zèbre']
+</code></pre></div>
+<p>On pourrait alors préciser une fonction de tri <code>key=len</code> pour les trier par taille.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">sorted</span>(words, key=<span class="hljs-built_in">len</span>)</span>
+['oie', 'zèbre', 'cheval', 'autruche']
+</code></pre></div>
+<p>En effet, la fonction <code>len</code> sera appelée pour chaque mot et les mots seront triés suivant le retour de la fonction (en l’occurrence 3, 5, 6 et 8).
+Mais il est possible d’utiliser n’importe quelle fonction en tant que clé de tri, tant que cette fonction renvoie quelque chose d’ordonnable.</p>
+<p>Voici un autre exemple avec une fonction pour trier les mots dans l’ordre alphabétique mais en commençant par la dernière lettre du mot.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">key_func</span>(<span class="hljs-params">word</span>):</span></span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">return</span> word[::-<span class="hljs-number">1</span>] <span class="hljs-comment"># On renvoie le mot à l'envers</span></span>
+<span class="hljs-meta">...</span>
+<span class="hljs-meta">>>></span> <span class="python">key_func(<span class="hljs-string">'autruche'</span>)</span>
+'ehcurtua'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">sorted</span>(words, key=key_func)</span>
+['autruche', 'oie', 'zèbre', 'cheval']
+</code></pre></div>
+<p>Ces deux arguments sont aussi disponibles sur la méthode <code>sort</code> des listes.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">words.sort(key=<span class="hljs-built_in">len</span>, reverse=<span class="hljs-literal">True</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python">words</span>
+['autruche', 'cheval', 'zèbre', 'oie']
+</code></pre></div>
+<h5 id="min-et-max"><code>min</code> et <code>max</code><a aria-hidden="true" tabindex="-1" href="index.html#min-et-max"><span class="icon icon-link"></span></a></h5>
+<p>On a déjà vu les fonctions <code>min</code> et <code>max</code> qui permettent respectivement de récupérer le minimum/maximum parmi leurs arguments.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">min</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)</span>
+1
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">max</span>(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)</span>
+3
+</code></pre></div>
+<p>On sait aussi qu’on peut les appeler avec un seul argument (un itérable) et récupérer le minimum/maximum dans cet itérable.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">min</span>({<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>})</span>
+1
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">max</span>([<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>])</span>
+3
+</code></pre></div>
+<p>Mais sachez maintenant que ces fonctions acceptent aussi un argument <code>key</code> qui fonctionne de la même manière que pour <code>sorted</code>.<br>
+Ainsi il est possible d’expliquer comment doivent être comparées les valeurs.
+On peut alors simplement demander la valeur minimale/minimale d’une liste en comparant les nombres selon leur valeur absolue.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">min</span>([-<span class="hljs-number">5</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>], key=<span class="hljs-built_in">abs</span>)</span>
+1
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">max</span>([-<span class="hljs-number">5</span>, -<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>], key=<span class="hljs-built_in">abs</span>)</span>
+-5
+</code></pre></div>
+<p>Ces fonctions acceptent aussi un argument <code>default</code> dont la valeur est renvoyée (plutôt qu’une erreur) si l’itérable est vide.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">min</span>([])</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+ValueError: min() arg is an empty sequence
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">min</span>([], default=<span class="hljs-number">42</span>)</span>
+42
+</code></pre></div>
+<h5 id="zip"><code>zip</code><a aria-hidden="true" tabindex="-1" href="index.html#zip"><span class="icon icon-link"></span></a></h5>
+<p><code>zip</code> est une fonction très pratique de Python, puisqu’elle permet de parcourir simultanément plusieurs itérables.
+On appelle la fonction en lui fournissant nos itérables en arguments, et l’on itère ensuite sur l’objet qu’elle nous renvoie.<br>
+Les éléments que l’on obtient alors sont des tuples formés des éléments de nos itérables de départ.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> elem <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(words, <span class="hljs-string">'abcd'</span>, <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(elem)</span>
+<span class="hljs-meta">...</span> 
+('autruche', 'a', 0)
+('cheval', 'b', 1)
+('zèbre', 'c', 2)
+('oie', 'd', 3)
+</code></pre></div>
+<p>Il est ainsi possible d’utiliser l'<em>unpacking</em> de Python pour avoir quelque chose de plus explicite.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> word, letter, number <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(words, <span class="hljs-string">'abcd'</span>, <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>)):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(word, letter, number)</span>
+<span class="hljs-meta">...</span> 
+autruche a 0
+cheval b 1
+zèbre c 2
+oie d 3
+</code></pre></div>
+<p><code>zip</code> accepte autant d’arguments que l’on souhaite, on peut l’appeler avec deux itérables comme avec dix.</p>
+<p>Aussi, il s’arrête dès que l’un des itérables se termine, puisqu’il ne peut alors plus produire de tuple contenant un élément de chaque.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i, j <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>), <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i, j)</span>
+<span class="hljs-meta">...</span> 
+2 0
+3 1
+4 2
+5 3
+</code></pre></div>
+<h5 id="module-itertools">Module <code>itertools</code><a aria-hidden="true" tabindex="-1" href="index.html#module-itertools"><span class="icon icon-link"></span></a></h5>
+<p>En plus des outils <em>built-in</em> pour manipuler les itérables, la bibliothèque standard fournit aussi une mine d’or : le module <a href="https://docs.python.org/fr/3/library/itertools.html"><code>itertools</code></a>.</p>
+<p>Je ne détaillerai pas tout ce que contient le module, la documentation fera cela beaucoup mieux que moi.
+Je veux juste vous présenter quelques fonctions qui pourraient vous être bien utiles.</p>
+<h6 id="chain"><code>chain</code><a aria-hidden="true" tabindex="-1" href="index.html#chain"><span class="icon icon-link"></span></a></h6>
+<p>Comme son nom l’indique, <code>chain</code> permet de chaîner plusieurs itérables, de façon transparente et quels que soient leurs types.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> chain</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> chain(<span class="hljs-string">'ABC'</span>, [<span class="hljs-string">'D'</span>, <span class="hljs-string">'E'</span>], (<span class="hljs-string">'F'</span>, <span class="hljs-string">'G'</span>)):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(letter)</span>
+<span class="hljs-meta">...</span> 
+A
+B
+C
+D
+E
+F
+G
+</code></pre></div>
+<h6 id="zip_longest"><code>zip_longest</code><a aria-hidden="true" tabindex="-1" href="index.html#zip_longest"><span class="icon icon-link"></span></a></h6>
+<p><code>zip_longest</code> est un équivalent à <code>zip</code> qui ne s’arrête pas au premier itérable terminé mais qui continue jusqu’au dernier.
+Les valeurs manquantes seront alors complétées par <code>None</code>, ou par la valeur précisée au paramètre <code>fillvalue</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span><span data-count="13"></span><span data-count="14"></span><span data-count="15"></span><span data-count="16"></span><span data-count="17"></span><span data-count="18"></span><span data-count="19"></span><span data-count="20"></span><span data-count="21"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> zip_longest</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i, j <span class="hljs-keyword">in</span> zip_longest(<span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>), <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i, j)</span>
+<span class="hljs-meta">...</span> 
+2 0
+3 1
+4 2
+5 3
+None 4
+None 5
+None 6
+None 7
+None 8
+None 9
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> letter1, letter2 <span class="hljs-keyword">in</span> zip_longest(<span class="hljs-string">'ABCD'</span>, <span class="hljs-string">'EF'</span>, fillvalue=<span class="hljs-string">'.'</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(letter1, letter2)</span>
+<span class="hljs-meta">...</span> 
+A E
+B F
+C .
+D .
+</code></pre></div>
+<h6 id="product"><code>product</code><a aria-hidden="true" tabindex="-1" href="index.html#product"><span class="icon icon-link"></span></a></h6>
+<p><code>product</code> calcule le produit cartésien entre plusieurs itérables, c’est-à-dire qu’il produit toutes les combinaisons d’éléments possibles.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span><span data-count="13"></span><span data-count="14"></span><span data-count="15"></span><span data-count="16"></span><span data-count="17"></span><span data-count="18"></span><span data-count="19"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> product</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i, c <span class="hljs-keyword">in</span> product(<span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>), <span class="hljs-string">'ABC'</span>):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(i, c)</span>
+<span class="hljs-meta">...</span> 
+0 A
+0 B
+0 C
+1 A
+1 B
+1 C
+2 A
+2 B
+2 C
+3 A
+3 B
+3 C
+4 A
+4 B
+4 C
+</code></pre></div>
+<p>Cela revient à écrire des boucles <code>for</code> imbriquées tout en économisant des niveaux d’indentation.
+L’exemple précédent est ainsi équivalent au code suivant.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">'ABC'</span>:
+        <span class="hljs-built_in">print</span>(i, c)
+</code></pre></div>
+<p>Le module propose d’autres fonctions combinatoires que je vous invite à regarder.</p>
+<h6 id="recettes">Recettes<a aria-hidden="true" tabindex="-1" href="index.html#recettes"><span class="icon icon-link"></span></a></h6>
+<p>En plus de donner des explications et exemples pour chacune de ses fonctions, la documentation du module <code>itertools</code> <a href="https://docs.python.org/fr/3/library/itertools.html#itertools-recipes">fournit aussi quelques « recettes »</a>.</p>
+<p>Il s’agit de fonctions qui répondent à des besoins trop particuliers pour être vraiment intégrées au module.
+Les recettes sont là pour que vous les repreniez dans votre code et que vous les adaptiez à votre convenance.</p>
+        </div>
+    
+
+    <h2 id="4-4-comprehensions">
+        <a href="index.html#4-4-comprehensions">
+            Listes en intension
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <p>On a vu qu’il était possible d’écrire des conditions sous forme d’expressions, qu’en est-il des boucles ?</p>
+<p>Une expression est une instruction qui possède une valeur.
+Pour une condition c’est facile : on a une valeur si la condition est vraie et une autre valeur sinon.
+Mais quelle pourrait être la valeur d’une boucle ?</p>
+<p>Il n’y a pas de réponse évidente à cette question, et c’est pourquoi il n’y a pas d’expression générale pour exécuter une boucle.
+Il existe en revanche les listes en intension, qui permettent de construire une liste à partir d’une boucle <code>for</code>.</p>
+<p>L’intension est un concept mathématique qui s’oppose à l’extension pour définir un ensemble<sup id="fnref-1-unS3JBp9iUV"><a href="index.html#fn-1-unS3JBp9iUV" class="footnote-ref">1</a></sup>.
+La définition par extension, c’est celle que nous avons utilisée jusqu’ici, qui consiste à définir l’ensemble par les éléments qu’il possède.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-python">powers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">16</span>, <span class="hljs-number">32</span>, <span class="hljs-number">64</span>, <span class="hljs-number">128</span>, <span class="hljs-number">256</span>, <span class="hljs-number">512</span>]
+</code></pre></div>
+<p>La définition par intension consiste elle à décrire l’ensemble selon une règle, par exemple « les dix premières puissances de 2 ».
+On la traduirait en Python par le code suivant :</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">powers = [<span class="hljs-number">2</span>**i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)]</span>
+<span class="hljs-meta">>>></span> <span class="python">powers</span>
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+</code></pre></div>
+<p>On voit alors que l’on utilise le <code>for</code> dans une expression pour construire une liste.
+Le code précédent est équivalent à la boucle suivante.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-python">powers = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    powers.append(<span class="hljs-number">2</span>**i)
+</code></pre></div>
+<p>On peut ainsi transposer vers une liste en intension toute boucle <code>for</code> ne consistant qu’à évaluer une expression à chaque itération.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[letter + <span class="hljs-string">'!'</span> <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> <span class="hljs-string">'ABCD'</span>]</span>
+['A!', 'B!', 'C!', 'D!']
+<span class="hljs-meta">>>></span> <span class="python">[<span class="hljs-built_in">len</span>(word) <span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> [<span class="hljs-string">'zeste'</span>, <span class="hljs-string">'de'</span>, <span class="hljs-string">'savoir'</span>]]</span>
+[5, 2, 6]
+<span class="hljs-meta">>>></span> <span class="python">[letter * i <span class="hljs-keyword">for</span> letter, i <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(<span class="hljs-string">'ABCD'</span>, <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>))]</span>
+['A', 'BB', 'CCC', 'DDDD']
+</code></pre></div>
+<div class="custom-block custom-block-information"><div class="custom-block-body"><p>Le terme anglais pour les listes en intension est <em>list comprehensions</em>, aussi il est courant de rencontrer en français les expressions « liste en compréhension » ou « compréhension de liste », il s’agit évidemment de la même chose.</p></div></div>
+<h5 id="conditions-de-filtrage">Conditions de filtrage<a aria-hidden="true" tabindex="-1" href="index.html#conditions-de-filtrage"><span class="icon icon-link"></span></a></h5>
+<p>Mais les listes en intension ne s’arrêtent pas là et permettent des constructions plus complexes : il est possible de filtrer les éléments à intégrer ou non à la liste.
+Pour cela on utilise une expression de la forme suivante.</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span></div><pre><code class="hljs language-python">[expression <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> iterable <span class="hljs-keyword">if</span> condition]
+</code></pre></div>
+<p>La condition interviendra à chaque itération et déterminera s’il faut ajouter <code>expression</code> aux éléments de la liste en construction ou non.
+Voici par exemple la liste des entiers naturels pairs strictement inférieurs à 10.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>]</span>
+[0, 2, 4, 6, 8]
+</code></pre></div>
+<p>Ce code est équivalent à la boucle suivante :</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-python">values = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>:
+        values.append(i)
+</code></pre></div>
+<div class="custom-block custom-block-warning"><div class="custom-block-body"><p>Attention à ne pas confondre le <code>if</code> utilisé ici avec le <code>if</code> de l’expression conditionnelle.
+Ce premier n’autorise pas le <code>else</code> puisque cela n’aurait pas de sens sur une condition de filtrage.</p></div></div>
+<p>Par ailleurs, les expressions conditionnelles étant des expressions à part entière, il est parfaitement possible de les utiliser dans des listes en intension.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[i // <span class="hljs-number">2</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)]</span>
+[0, 4, 1, 10, 2, 16, 3, 22, 4, 28]
+</code></pre></div>
+<p>On peut même les combiner aux conditions de filtrage sans que cela ne pose problème, veillez tout de même à ce que le code reste toujours lisible.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[i // <span class="hljs-number">2</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>]</span>
+[0, 10, 3, 28]
+</code></pre></div>
+<p>Pour plus de clarté, il est ainsi parfois conseillé de placer des parenthèses autour de l’expression conditionnelle.
+Mais de manière générale, une liste en intension trop longue peut signifier que ce n’est pas la meilleure solution au problème et qu’une boucle « standard » irait tout aussi bien.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[(i // <span class="hljs-number">2</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> i * <span class="hljs-number">3</span> + <span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>]</span>
+[0, 10, 3, 28]
+</code></pre></div>
+<p>Il est aussi possible d’utiliser plusieurs <code>if</code> dans l’intension pour définir plusieurs conditions sur lesquelles filtrer, celles-ci s’additionnant les unes aux autres.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>] <span class="hljs-comment"># Multiples de 2 et 3</span></span>
+[0, 6]
+</code></pre></div>
+<h5 id="boucles-imbriquées">Boucles imbriquées<a aria-hidden="true" tabindex="-1" href="index.html#boucles-imbriquées"><span class="icon icon-link"></span></a></h5>
+<p>D’ailleurs, les <code>for</code> aussi peuvent être chaînés au sein d’une même intension.
+Cela permet alors de faire la même chose qu’avec des boucles imbriquées pour remplir notre liste.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[(i, c) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">'AB'</span>]</span>
+[(0, 'A'), (0, 'B'), (1, 'A'), (1, 'B'), (2, 'A'), (2, 'B')]
+</code></pre></div>
+<p>Les boucles sont à lire de gauche à droite comme si elles étaient écrites de haut en bas, le code précédent est équivalent à :</p>
+<div class="hljs-code-div hljs-code-python"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-python">values = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">'AB'</span>:
+        values.append((i, c))
+</code></pre></div>
+<p>Et il est possible d’enchaîner autant de <code>for</code> que l’on veut dans l’intension, comme l’on pourrait en imbriquer autant qu’on veut.
+Mais attention, nous obtenons bien une seule liste en sortie, comportant toutes les combinaisons parcourues lors de l’itération.</p>
+<p>Les listes en intension étant des expressions comme les autres, il est aussi possible d’imbriquer les intensions.
+C’est ainsi que l’on peut construire des listes à plusieurs dimensions.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">table = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)] <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>)]</span>
+<span class="hljs-meta">>>></span> <span class="python">table</span>
+[[0, 0, 0], [0, 0, 0]]
+</code></pre></div>
+<p>C’est un modèle de construction assez courant en Python puisqu’il ne souffre pas du problème de références multiples dont je parlais lors de la présentation des listes.
+Ici, chaque sous-liste est une instance différente et peut donc être modifiée indépendamment des autres.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">table[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">5</span></span>
+<span class="hljs-meta">>>></span> <span class="python">table</span>
+[[0, 5, 0], [0, 0, 0]]
+</code></pre></div>
+<p>Souvenez-vous, ce n’est pas le résultat qu’on obtenait avec <code>[[0] * 3] * 2</code> où chaque ligne était une référence vers la même liste.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">table = [[<span class="hljs-number">0</span>] * <span class="hljs-number">3</span>] * <span class="hljs-number">2</span></span>
+<span class="hljs-meta">>>></span> <span class="python">table</span>
+[[0, 0, 0], [0, 0, 0]]
+<span class="hljs-meta">>>></span> <span class="python">table[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">5</span></span>
+<span class="hljs-meta">>>></span> <span class="python">table</span>
+[[0, 5, 0], [0, 5, 0]]
+</code></pre></div>
+<h5 id="autres-constructions-en-intension">Autres constructions en intension<a aria-hidden="true" tabindex="-1" href="index.html#autres-constructions-en-intension"><span class="icon icon-link"></span></a></h5>
+<p>On parle souvent de listes en intension mais ce n’est pas le seul type qui peut être construit ainsi.
+Au programme, on trouve aussi les ensembles et les dictionnaires.</p>
+<p>Pour les ensembles, la syntaxe est identique aux listes à l’exception qu’on utilise des accolades plutôt que des crochets.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">{i**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)}</span>
+{0, 1, 64, 4, 36, 9, 16, 49, 81, 25}
+</code></pre></div>
+<p>Et on retrouve les mêmes fonctionnalités sur les intensions : il est possible d’avoir plusieurs boucles et d’utiliser des conditions de filtrage.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">{i+j <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">if</span> (i+j) % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>}</span>
+{0, 2, 4, 6, 8, 10, 12, 14, 16, 18}
+</code></pre></div>
+<p>Vous constaterez pour ce dernier exemple que le résultat ne serait pas du tout le même avec une liste, l’ensemble ne permettant pas les duplications.</p>
+<p>Pour les dictionnaires on retrouve quelque chose de similaire mais utilisant la syntaxe <code>cle: valeur</code> plutôt qu’une simple expression (où <code>cle</code> et <code>valeur</code> sont aussi des expressions).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">{i: i**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)}</span>
+{0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+</code></pre></div>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn-1-unS3JBp9iUV"><a href="https://fr.wikipedia.org/wiki/Intension_et_extension">https://fr.wikipedia.org/wiki/Intension_et_extension</a><a href="index.html#fnref-1-unS3JBp9iUV" class="footnote-backref" title="Retourner au texte de la note 1">↩</a></li>
+</ol>
+</div>
+        </div>
+    
+
+    <h2 id="5-5-iterateurs">
+        <a href="index.html#5-5-iterateurs">
+            Itérateurs
+        </a>
+    </h2>
+    
+        <div class="extract-wrapper">
+            <h5 id="itérables-et-itérateurs">Itérables et itérateurs<a aria-hidden="true" tabindex="-1" href="index.html#itérables-et-itérateurs"><span class="icon icon-link"></span></a></h5>
+<p>Depuis plusieurs chapitres j’utilise le terme d’itérables pour qualifier les objets qui peuvent être parcourus à l’aide d’une boucle <code>for</code>, mais qu’en est-il ?
+On a vu qu’il existait un grand nombre d’itérables, tels que les chaînes de caractères, les listes, les <em>range</em>, les dictionnaires, les fichiers, etc.</p>
+<p>Il y en a d’autres encore et l’on en a vu plus récemment dans ce chapitre : les retours des fonctions <code>enumerate</code> ou <code>zip</code> sont aussi des itérables.
+Mais si on les regarde de plus près, on voit qu’ils sont un peu particuliers.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">enumerate</span>(<span class="hljs-string">'abcde'</span>)</span>
+&#x3C;enumerate object at 0x7f30749e0240>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">zip</span>(<span class="hljs-string">'abc'</span>, <span class="hljs-string">'def'</span>)</span>
+&#x3C;zip object at 0x7f30749e02c0>
+</code></pre></div>
+<p>Ou plutôt on ne voit pas grand chose justement, ces objets sont assez intrigants.
+On sait qu’ils sont itérables, on l’a vu plus tôt, et on peut donc se servir de cette propriété pour les transformer en liste si c’est ce qui nous intéresse.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(<span class="hljs-built_in">enumerate</span>(<span class="hljs-string">'abcde'</span>))</span>
+[(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd'), (4, 'e')]
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(<span class="hljs-string">'abc'</span>, <span class="hljs-string">'def'</span>))</span>
+[('a', 'd'), ('b', 'e'), ('c', 'f')]
+</code></pre></div>
+<p>Mais ce qui est plus étonnant c’est qu’on ne peut itérer dessus qu’une seule fois.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = <span class="hljs-built_in">enumerate</span>(<span class="hljs-string">'abcde'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> values:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(v)</span>
+<span class="hljs-meta">...</span> 
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'd')
+(4, 'e')
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> values:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(v)</span>
+<span class="hljs-meta">...</span>
+</code></pre></div>
+<p>On constate le même comportement avec la conversion en liste.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = <span class="hljs-built_in">zip</span>(<span class="hljs-string">'abc'</span>, <span class="hljs-string">'def'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(values)</span>
+[('a', 'd'), ('b', 'e'), ('c', 'f')]
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(values)</span>
+[]
+</code></pre></div>
+<p>Une fois parcourus une première fois, il n’est plus possible d’itérer à nouveau sur leurs valeurs.
+Contrairement à d’autres itérables comme les listes ou les <em>ranges</em> que l’on parcourt autant de fois que l’on veut.</p>
+<p>En fait, ces objets <em>enumerate</em> et <em>zip</em> ne sont pas seulement des itérables, ils sont des itérateurs.
+Un itérateur peut se voir comme un curseur qui se déplace le long d’un itérable, et qui logiquement se consume à chaque étape.
+Ici l’objet <em>enumerate</em> est donc un itérateur le long de notre chaîne <code>'abcde'</code>.</p>
+<p>La fonction <code>next</code> en Python permet de récupérer la prochaine valeur d’un itérateur.
+Elle prend l’itérateur en argument et renvoie la valeur pointée par le curseur tout en le faisant avancer.
+Puisque l’itérateur avance, le retour de la fonction sera différent à chaque appel.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = <span class="hljs-built_in">enumerate</span>(<span class="hljs-string">'abcde'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+(0, 'a')
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+(1, 'b')
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+(2, 'c')
+</code></pre></div>
+<p>En fin de parcours, l’itérateur lève une exception <code>StopIteration</code> pour signaler que l’itération est terminée.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+(3, 'd')
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+(4, 'e')
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+Traceback (most recent call last):
+  File "&#x3C;stdin>", line 1, in &#x3C;module>
+StopIteration
+</code></pre></div>
+<p>On ne peut alors pas revenir en arrière : une fois notre itérateur parcouru il est entièrement consumé.
+C’est pourquoi il n’est pas possible de faire deux <code>for</code> à la suite sur un même objet <code>enumerate</code> ou <code>zip</code>, ils sont à usage unique.</p>
+<p>Mais ils se basent sur des itérables réutilisables que sont les chaînes de caractères, listes ou autres : on peut donc à nouveau appeler <code>enumerate</code> pour obtenir un itérateur tout neuf et recommencer à boucler.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span><span data-count="13"></span><span data-count="14"></span><span data-count="15"></span><span data-count="16"></span><span data-count="17"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = <span class="hljs-string">'abcde'</span></span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(values):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(v)</span>
+<span class="hljs-meta">...</span> 
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'd')
+(4, 'e')
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(values):</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(v)</span>
+<span class="hljs-meta">...</span> 
+(0, 'a')
+(1, 'b')
+(2, 'c')
+(3, 'd')
+(4, 'e')
+</code></pre></div>
+<h5 id="fonctions-map-et-filter">Fonctions <code>map</code> et <code>filter</code><a aria-hidden="true" tabindex="-1" href="index.html#fonctions-map-et-filter"><span class="icon icon-link"></span></a></h5>
+<p>En évoquant les outils d’itération plus tôt, j’ai volontairement omis les fonctions <code>map</code> et <code>filter</code>.
+Parce que leurs fonctionnalités sont couvertes par les listes en intension et parce qu’elles renvoient des itérateurs.</p>
+<p><code>map</code> et <code>filter</code> sont issues de la programmation fonctionnelle et servent respectivement à convertir et à filtrer les données d’un itérable.</p>
+<p><code>map</code> prend en arguments une fonction et un itérable, et applique la fonction à chaque élément de l’itérable, renvoyant un itérateur sur les résultats.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = [<span class="hljs-number">1.3</span>, <span class="hljs-number">2.5</span>, <span class="hljs-number">3.8</span>, <span class="hljs-number">4.2</span>]</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">map</span>(<span class="hljs-built_in">round</span>, values)</span>
+&#x3C;map object at 0x7f4ae2db16a0>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">round</span>, values))</span>
+[1, 2, 4, 4]
+</code></pre></div>
+<p>Cela revient donc à utiliser la liste en intension suivante.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[<span class="hljs-built_in">round</span>(v) <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> values]</span>
+[1, 2, 4, 4]
+</code></pre></div>
+<p><code>filter</code> est le pendant pour le filtrage des éléments.
+Ici le premier argument est une fonction utilisée comme prédicat : l’élément est conservé si le prédicat et vrai et ignoré sinon.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greater_than_two</span>(<span class="hljs-params">n</span>):</span></span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">return</span> n >= <span class="hljs-number">2</span></span>
+<span class="hljs-meta">...</span> 
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(<span class="hljs-built_in">filter</span>(greater_than_two, values))</span>
+[2.5, 3.8, 4.2]
+</code></pre></div>
+<p>Ici, la liste en intension équivalente serait la suivante.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">[v <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> values <span class="hljs-keyword">if</span> v >= <span class="hljs-number">2</span>]</span>
+[2.5, 3.8, 4.2]
+</code></pre></div>
+<p><code>map</code> et <code>filter</code> existaient avant les listes en intension et sont moins utilisées aujourd’hui, surtout lorsqu’il s’agit de les transformer en listes.
+Elles restent parfois utilisées quand on n’attend rien de plus qu’un itérateur, par exemple pour fournir en argument à une autre fonction.</p>
+<p>C’est le cas de <code>str.join</code> qui attend un itérable de chaînes de caractères et nécessite donc que les données soient converties en chaînes, ce que permet <code>map</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-string">', '</span>.join(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">str</span>, values))</span>
+'1.3, 2.5, 3.8, 4.2'
+</code></pre></div>
+<h5 id="itérateurs-infinis">Itérateurs infinis<a aria-hidden="true" tabindex="-1" href="index.html#itérateurs-infinis"><span class="icon icon-link"></span></a></h5>
+<p>Comme je disais, un itérateur ne représente qu’un curseur, il a donc une empreinte très faible en mémoire.
+Mieux encore, il n’a même pas besoin de s’appuyer sur des données qui existent déjà, celles-ci peuvent être générées à la volée lors du parcours.</p>
+<p>C’est déjà le principe des objets <em>range</em> qui occupent très peu d’espace : tous les nombres de l’intervalle ne sont pas stockés en mémoire à la création du <em>range</em>, ils sont simplement calculés pendant l’itération et disparaissent après.</p>
+<p>On peut pousser le concept plus loin et itérer sur des données qui ne pourraient jamais tenir dans la mémoire de l’ordinateur, des données infinies.
+C’est le cas des itérateurs que nous allons voir ici, ils ne se terminent jamais.<br>
+Ces itérateurs infinis sont tirés du module <code>itertools</code>.</p>
+<p>Le plus simple d’entre tous c’est <code>count</code>, qui permet de compter de 1 en 1.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> count</span>
+<span class="hljs-meta">>>></span> <span class="python">numbers = count()</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(numbers)</span>
+0
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(numbers)</span>
+1
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(numbers)</span>
+2
+</code></pre></div>
+<p>À quoi cela peut-il servir ? C’est très pratique pour générer des identifiants uniques puisque chaque appel à <code>next</code> renverra un nombre différent.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">id_seq = count()</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_event</span>():</span></span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">return</span> {<span class="hljs-string">'id'</span>: <span class="hljs-built_in">next</span>(id_seq), <span class="hljs-string">'type'</span>: <span class="hljs-string">'monstre'</span>, <span class="hljs-string">'message'</span>: <span class="hljs-string">'Un pythachu sauvage apparaît'</span>}</span>
+<span class="hljs-meta">...</span> 
+<span class="hljs-meta">>>></span> <span class="python">new_event()</span>
+{'id': 0, 'type': 'monstre', 'message': 'Un pythachu sauvage apparaît'}
+<span class="hljs-meta">>>></span> <span class="python">new_event()</span>
+{'id': 1, 'type': 'monstre', 'message': 'Un pythachu sauvage apparaît'}
+<span class="hljs-meta">>>></span> <span class="python">new_event()</span>
+</code></pre></div>
+<p>Cela peut être aussi utile mathématiquement, pour simplement calculer un seuil à partir duquel une propriété est vraie.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> count():</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">if</span> <span class="hljs-number">2</span>**i > <span class="hljs-number">1000</span>:</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-keyword">break</span></span>
+<span class="hljs-meta">...</span> 
+<span class="hljs-meta">>>></span> <span class="python">i</span>
+10
+</code></pre></div>
+<p>On sait ainsi que <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>10</mn></msup></mrow><annotation encoding="application/x-tex">2^{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span></span> est la première puissance de 2 à être supérieur à 1000.</p>
+<p>On notera que <code>count</code> peut prendre deux arguments : le premier est le nombre de départ (0 par défaut) et le second est le pas (1 par défaut).</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">numbers = count(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(numbers)</span>
+1
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(numbers)</span>
+3
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(numbers)</span>
+5
+</code></pre></div>
+<p>Un autre itérateur infini est <code>repeat</code>, qui répète simplement en boucle le même élément.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> repeat</span>
+<span class="hljs-meta">>>></span> <span class="python">values = repeat(<span class="hljs-string">'hello'</span>)</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+'hello'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+'hello'
+</code></pre></div>
+<p>On pourra le voir utilisé dans des <code>zip</code> pour simuler une séquence de même longueur qu’une autre.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span><span data-count="12"></span><span data-count="13"></span><span data-count="14"></span><span data-count="15"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">additions</span>(<span class="hljs-params">seq1, seq2</span>):</span></span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-keyword">for</span> i, j <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(seq1, seq2):</span>
+<span class="hljs-meta">...</span> <span class="python">        <span class="hljs-built_in">print</span>(<span class="hljs-string">f'<span class="hljs-subst">{i}</span> + <span class="hljs-subst">{j}</span> = <span class="hljs-subst">{i+j}</span>'</span>)</span>
+<span class="hljs-meta">...</span> 
+<span class="hljs-meta">>>></span> <span class="python">additions(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>), repeat(<span class="hljs-number">5</span>))</span>
+0 + 5 = 5
+1 + 5 = 6
+2 + 5 = 7
+3 + 5 = 8
+4 + 5 = 9
+5 + 5 = 10
+6 + 5 = 11
+7 + 5 = 12
+8 + 5 = 13
+9 + 5 = 14
+</code></pre></div>
+<p><code>repeat</code> peut aussi prendre un argument qui indique le nombre de répétitions à effectuer, auquel cas il ne sera plus infini.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">list</span>(repeat(<span class="hljs-string">'hello'</span>, <span class="hljs-number">5</span>))</span>
+['hello', 'hello', 'hello', 'hello', 'hello']
+</code></pre></div>
+<p>Dans le même genre on trouve enfin <code>cycle</code> pour boucler (indéfiniment) sur un même itérable.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> cycle</span>
+<span class="hljs-meta">>>></span> <span class="python">values = cycle([<span class="hljs-string">'hello'</span>, <span class="hljs-string">'world'</span>])</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+'hello'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+'world'
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(values)</span>
+'hello'
+</code></pre></div>
+<p>C’est aussi un cas d’utilisation pour avoir un itérable que l’on voudrait au moins aussi grand qu’un autre.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span><span data-count="9"></span><span data-count="10"></span><span data-count="11"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">additions(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>), cycle([<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>]))</span>
+0 + 3 = 3
+1 + 5 = 6
+2 + 8 = 10
+3 + 3 = 6
+4 + 5 = 9
+5 + 8 = 13
+6 + 3 = 9
+7 + 5 = 12
+8 + 8 = 16
+9 + 3 = 12
+</code></pre></div>
+<h5 id="fonction-iter">Fonction <code>iter</code><a aria-hidden="true" tabindex="-1" href="index.html#fonction-iter"><span class="icon icon-link"></span></a></h5>
+<p>Pour terminer ce chapitre je voudrais vous parler d'<code>iter</code>, une fonction qui renvoie un simple itérateur sur l’itérable donné en argument.
+Un nouvel itérateur est construit et renvoyé à chaque appel sur l’itérable.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">values = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">iter</span>(values)</span>
+&#x3C;list_iterator object at 0x7f3074a28850>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">iter</span>(values)</span>
+&#x3C;list_iterator object at 0x7f3074a28bb0>
+</code></pre></div>
+<p>Ces itérateurs sont semblables à nos objets <code>enumerate</code>, on peut appeler <code>next</code> dessus et récupérer la valeur suivante.
+Ils sont donc utiles si l’on souhaite parcourir manuellement un itérable à coups de <code>next</code>.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">it = <span class="hljs-built_in">iter</span>(values)</span>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(it)</span>
+0
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(it)</span>
+1
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">next</span>(it)</span>
+2
+</code></pre></div>
+<p>Et bien sûr on peut aussi les parcourir avec un <code>for</code>.
+Attention encore, l’itérateur avance pendant le parcours, et le <code>for</code> continuera donc l’itération à partir d’où il se trouve.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span><span data-count="5"></span><span data-count="6"></span><span data-count="7"></span><span data-count="8"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> it:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(v)</span>
+<span class="hljs-meta">...</span> 
+3
+4
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> it:</span>
+<span class="hljs-meta">...</span> <span class="python">    <span class="hljs-built_in">print</span>(v)</span>
+<span class="hljs-meta">...</span> 
+</code></pre></div>
+<p>Les itérateurs étant des itérables, il est possible de les donner à leur tour à <code>iter</code>.
+La fonction renverra alors simplement le même itérateur.</p>
+<div class="hljs-code-div hljs-code-pycon"><div class="hljs-line-numbers"><span data-count="1"></span><span data-count="2"></span><span data-count="3"></span><span data-count="4"></span></div><pre><code class="hljs language-pycon"><span class="hljs-meta">>>></span> <span class="python">it</span>
+&#x3C;list_iterator object at 0x7f3074a21070>
+<span class="hljs-meta">>>></span> <span class="python"><span class="hljs-built_in">iter</span>(it)</span>
+&#x3C;list_iterator object at 0x7f3074a21070>
+</code></pre></div>
+<p>On constate bien que les deux valeurs ont la même adresse.</p>
+        </div>
+    
+
+
+<hr />
+
+
+
+    
+    
+        
+
+
+
+    <ul class="pagination pagination-bottom pagination-chapter">
+        
+            <li class="prev">
+                <a
+                    
+                        href="../2-conditions/index.html"
+                    
+                    class="ico-after arrow-left"
+                    rel="prev"
+                >
+                    Retour sur les conditions
+                </a>
+            </li>
+        
+        
+        
+            <li class="summary-button">
+                <a
+                    
+                        href="../../index.html"
+                    
+                >
+                    Sommaire
+                </a>
+            </li>        
+        
+        
+        
+            <li class="next">
+                <a
+                    
+                        href="../4-fonctions/index.html"
+                    
+                    class="ico-after arrow-right"
+                    rel="next"
+                >
+                    Retour sur les fonctions
+                </a>
+            </li>
+        
+    </ul>
+
+
+
+    
+
+    
+
+
+
+
+
+            </section>
+        
+        
+    </article>
+    
+
+                    </main>
+
+                    
+    <aside class="sidebar summary mobile-menu-hide">
+        
+
+        
+
+        
+
+        
+    
+
+    
+
+
+
+
+
+
+<div class="mobile-menu-bloc accordeon" data-title="Sommaire du contenu">
+    <h3>Sommaire</h3>
+    
+
+    
+        
+             <h4 data-num="I"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../1-premiers-pas/index.html"
+                    
+                >
+                    Premiers pas avec Python
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../1-premiers-pas/1-presentation/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Présentation du langage
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../1-premiers-pas/2-installation/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Installation
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../1-premiers-pas/3-interpreteur/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Prise en main de l&#39;interpréteur
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../1-premiers-pas/4-fichiers/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Écrire du code dans des fichiers
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../1-premiers-pas/5-choix-interpreteur/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Fichiers ou interpréteur interactif ?
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="II"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../2-manipulations/index.html"
+                    
+                >
+                    Manipuler des données
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../2-manipulations/1-calculatrice/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur la calculatrice
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../2-manipulations/2-variables/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Des variables pour sauvegarder nos résultats
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../2-manipulations/3-texte/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Manipuler du texte
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../2-manipulations/4-interactions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Interactions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../2-manipulations/5-objets-methodes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Objets et méthodes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../2-manipulations/6-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Combat en tour par tour
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="III"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../3-structures-conditionnelles/index.html"
+                    
+                >
+                    Des programmes moins déterminés
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../3-structures-conditionnelles/1-conditions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les conditions (if/elif/else)
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../3-structures-conditionnelles/2-expressions-booleennes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Expressions booléennes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../3-structures-conditionnelles/3-tp-conditions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Ajoutons des conditions à notre jeu
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../3-structures-conditionnelles/4-listes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les listes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../3-structures-conditionnelles/5-iterations/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Itérer sur nos listes avec des boucles for
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../3-structures-conditionnelles/6-boucles/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Boucler sur une condition (while)
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="7"
+                                
+                                    href="../../3-structures-conditionnelles/7-algorithmes/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Algorithmes
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="8"
+                                
+                                    href="../../3-structures-conditionnelles/8-tp-boucles/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Ajoutons des boucles à notre jeu
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="IV"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../4-types/index.html"
+                    
+                >
+                    Types de données
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../4-types/1-types-precedents/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les types précédents
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../4-types/2-dictionnaires/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les dictionnaires
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../4-types/3-iteration-dictionnaire/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Itérer sur un dictionnaire
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../4-types/4-tuples/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les tuples
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../4-types/5-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="V"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../5-fonctions/index.html"
+                    
+                >
+                    Les fonctions
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../5-fonctions/1-fonctions-factoriser/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Des fonctions pour factoriser
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../5-fonctions/2-fonctions-parametrees/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Fonctions paramétrées
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../5-fonctions/3-retours/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retours de fonctions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../5-fonctions/4-parametres-mutables/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Paramètres et types mutables
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../5-fonctions/5-tests/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Fonctions de tests
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../5-fonctions/6-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Intégrons des fonctions à notre application
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="VI"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../6-entrees-sorties/index.html"
+                    
+                >
+                    Entrées / sorties
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../6-entrees-sorties/1-modules/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Découper son code en modules
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../6-entrees-sorties/2-lecture-fichier/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Lire un fichier en Python
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../6-entrees-sorties/3-iteration-fichier/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Itérer sur un fichier
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../6-entrees-sorties/4-ecriture-fichier/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Écrire dans un fichier
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../6-entrees-sorties/5-fstrings/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Chaînes de formatage
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../../6-entrees-sorties/6-exceptions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Gérer les exceptions (try/except)
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="7"
+                                
+                                    href="../../6-entrees-sorties/7-formatage/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Formater les données
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="8"
+                                
+                                    href="../../6-entrees-sorties/8-arguments-cmd/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Arguments de la ligne de commande
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="9"
+                                
+                                    href="../../6-entrees-sorties/9-paquets/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les paquets
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="10"
+                                
+                                    href="../../6-entrees-sorties/10-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Sauvegarder la partie
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="VII"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../index.html"
+                    
+                >
+                    Aller plus loin
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../1-autres-types/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Les autres types de données
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../2-conditions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les conditions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="current
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink unread"
+                            >
+                                Retour sur les boucles
+                            </a>
+                            
+                                <ol class="mobile-menu-bloc mobile-all-links" data-title="Sommaire du chapitre">
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#1-1-infini"
+                                                
+                                            >
+                                                Cas des boucles infinies
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#2-2-break-continue-else"
+                                                
+                                            >
+                                                Contrôle du flux
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#3-3-outils"
+                                                
+                                            >
+                                                Outils
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#4-4-comprehensions"
+                                                
+                                            >
+                                                Listes en intension
+                                            </a>
+                                        </li>
+                                    
+                                        <li >
+                                            <a
+                                                
+                                                    href="index.html#5-5-iterateurs"
+                                                
+                                            >
+                                                Itérateurs
+                                            </a>
+                                        </li>
+                                    
+                                </ol>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../4-fonctions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les fonctions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../5-variables/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les variables
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="6"
+                                
+                                    href="../6-exceptions/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Retour sur les exceptions
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="7"
+                                
+                                    href="../7-debogage/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Débogage
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="VIII"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../8-bibliotheque-standard/index.html"
+                    
+                >
+                    La bibliothèque standard
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../8-bibliotheque-standard/1-apercu/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Tour d&#39;horizon de la bibliothèque standard
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../8-bibliotheque-standard/2-random/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Un peu d&#39;aléatoire
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../8-bibliotheque-standard/3-date-time/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Gestion du temps
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../8-bibliotheque-standard/5-tp/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                TP : Monstre sauvage
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../8-bibliotheque-standard/9-modules-complementaires/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Installer des modules complémentaires
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+             <h4 data-num="IX"
+                 
+             >
+                <a class="mobile-menu-link"
+                    
+                        href="../../10-annexes/index.html"
+                    
+                >
+                    Annexes
+                </a>
+            </h4>
+            
+                <ol>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="1"
+                                
+                                    href="../../10-annexes/1-glossaire/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Glossaire et mots clés
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="2"
+                                
+                                    href="../../10-annexes/2-modules-complementaires/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Quelques modules complémentaires bien utiles
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="3"
+                                
+                                    href="../../10-annexes/3-tests/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Tests
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="4"
+                                
+                                    href="../../10-annexes/4-outils/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Outils
+                            </a>
+                            
+                        </li>
+                    
+                        <li class="
+                            "
+                        >
+                            <a data-num="5"
+                                
+                                    href="../../10-annexes/8-resources/index.html"
+                                
+                                class="mobile-menu-link mobile-menu-sublink "
+                            >
+                                Ressources
+                            </a>
+                            
+                        </li>
+                    
+                </ol>
+            
+        
+    
+</div>
+
+
+    
+
+<div class="mobile-menu-bloc mobile-all-links mobile-show-ico" data-title="Partager">
+    <h3>Partager</h3>
+    <ul>
+        <li>
+            <a href="https://twitter.com/share?url=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/&amp;text=Retour sur les boucles"
+               class="ico-after twitter blue"
+               rel="nofollow"
+            >
+                Twitter
+            </a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/sharer.php?u=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/&amp;t=Retour sur les boucles"
+               class="ico-after facebook blue"
+               rel="nofollow"
+            >
+                Facebook
+            </a>
+        </li>
+        <li>
+            <a href="index.html#share-to-mastodon"
+               class="open-modal ico-after mastodon blue"
+               rel="nofollow"
+            >
+                Mastodon
+            </a>
+            <form id="share-to-mastodon" class="modal modal-flex" target="_blank" method="GET">
+                <p>
+                    Entrez l'adresse de votre instance Mastodon (ex: https://mamot.fr).
+                </p>
+                <input type="text" class="input" name="instance" placeholder="https://" required>
+                <input type="hidden" class="input" name="text" value="Retour sur les boucles https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/">
+
+                <button type="submit"  class="btn btn-submit" disabled>Partager</button>
+            </form>
+        </li>
+        <li>
+            <a href="http://sharetodiaspora.github.io/?url=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/&amp;title=Retour sur les boucles"
+               class="ico-after diaspora blue"
+               rel="nofollow"
+            >
+                Diaspora*
+            </a>
+        </li>
+        <li>
+            <a href="mailto:?subject=Retour sur les boucles&amp;body=https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/3-boucles/"
+               class="ico-after email blue"
+               rel="nofollow"
+            >
+                Envoyer par mail
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div class="mobile-menu-bloc mobile-all-links mobile-show-ico" data-title="Télécharger">
+                    
+                        
+<h3>Télécharger</h3>
+<ul>
+    
+        
+        
+        
+        
+            <li>
+                <a href="https://zestedesavoir.com/tutoriels/tex/2514/un-zeste-de-python.tex" class="ico-after download blue">
+                    LaTeX
+                    
+                        
+                            (803,2 Kio)
+                        
+                    
+                </a>
+            </li>
+        
+        
+            <li>
+                <a href="https://zestedesavoir.com/tutoriels/epub/2514/un-zeste-de-python.epub" class="ico-after download blue">
+                    EPUB
+                    
+                        
+                            (1,3 Mio)
+                        
+                    
+                </a>
+            </li>
+        
+        
+            <li>
+                <a href="https://zestedesavoir.com/tutoriels/zip/2514/un-zeste-de-python.zip" class="ico-after download blue">
+                    Archive
+                    
+                        
+                            (836,2 Kio)
+                        
+                    
+                </a>
+            </li>
+        
+    
+</ul>
+
+                    
+                </div>
+            
+        
+    </aside>
+
+                </div>
+            
+        </div>
+
+
+
+        
+
+<footer class="page-footer">
+    <div class="wrapper">
+        <p class="copyright">
+            Zeste de Savoir
+            <span class="version">
+                &bull; Version :
+                
+                    <a href="https://github.com/zestedesavoir/zds-site/tree/3fa911478046934ddb9dd40f003f58eee18b8e68">dev/3fa9114</a>
+                
+            </span>
+        </p>
+
+        <ul class="social">
+            
+                <li>
+                    <a href="https://framapiaf.org/@ZesteDeSavoir"
+                       title="Suivez-nous sur Mastodon"
+                       class="btn ico-after mastodon light btn-mastodon btn-holder"></a>
+                </li>
+            
+
+            
+                <li>
+                    <a href="https://www.facebook.com/ZesteDeSavoir"
+                       title="Aimez notre page Facebook"
+                       class="btn ico-after facebook light btn-facebook btn-holder"></a>
+                </li>
+            
+
+            
+                <li>
+                    <a href="https://twitter.com/ZesteDeSavoir"
+                       title="Suivez-nous sur Twitter"
+                       class="btn ico-after twitter light btn-twitter btn-holder"></a>
+                </li>
+            
+
+            
+
+            
+        </ul>
+
+        <ul class="links">
+            <li><a href="https://zestedesavoir.com/api/">API</a></li>
+            <li><a href="https://zestedesavoir.com/pages/cgu/">CGU</a></li>
+            <li><a href="https://zestedesavoir.com/pages/apropos/">À propos</a></li>
+            
+                <li><a href="https://zestedesavoir.com/pages/association/">L’association</a></li>
+                <li>
+                    <a href="https://www.helloasso.com/associations/zeste-de-savoir/adhesions/cotisations-2021-2022">
+                        <span class="wide">Adhérer à l'association</span>
+                        <span class="until-wide" aria-hidden="true">Adhérer</span>
+                    </a>
+                </li>
+            
+            <li><a href="https://zestedesavoir.com/pages/contact/">Contact</a></li>
+            <li><a href="https://zestedesavoir.com/pages/cookies/">Les cookies</a></li>
+        </ul>
+    </div>
+</footer>
+
+    </div>
+
+
+
+
+
+
+    
+    <script src="../../../../../static/js/jquery.min.8fb8fee4fcc3.js"></script>
+    
+    
+    <script src="../../../../../static/js/script.9ee5a11734c8.js"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$', '$']],
+            displayMath: [['$$','$$']],
+            processEscapes: true,
+            processClass: "mathjax-wrapper|mathjax-span",
+            ignoreClass: "page-container"
+        },
+        TeX: { extensions: ["color.js", "cancel.js", "enclose.js", "bbox.js", "mathchoice.js", "newcommand.js", "verb.js", "unicode.js", "autobold.js", "mhchem.js"] },
+        messageStyle: "none",
+    });
+</script>
+<script type="application/javascript">
+    // When the page has been loaded (which means the DOM and Mathjax has been loaded)
+    window.addEventListener("load", function() {
+
+        // We look for <span> inside contents
+        $(".message-content span, .article-content span").each(function () {
+            // We only want those with no CSS class
+            if($(this).attr("class") === undefined) {
+                var text = $(this).text();
+                // We check that they start with $ and end with $
+                if (text && text[0] == "$" && text[text.length - 1] == "$") {
+                    // We add a class to mark them
+                    $(this).addClass("mathjax-span");
+                }
+            }
+        });
+
+        // If there is content waiting for Mathjax
+        if($(".mathjax-span, .mathjax-wrapper").length) {
+            // We run Mathjax
+            MathJax.Hub.Configured();
+        }
+
+    });
+</script>
+
+</body>
+</html>
